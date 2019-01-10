@@ -1,5 +1,5 @@
-import React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import React, { Fragment } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 //Layouts
 import Header from './components/layouts/Header';
@@ -10,11 +10,15 @@ import MatchUpOverview from './components/MatchUpOverview';
 
 
 export default (
-    <Router basename={process.env.PUBLIC_URL} history={browserHistory} >
-        <Route component={Header}>
-            <Route path="/" component={Home}>
-                <Route path=":serverName" component={MatchUpOverview} />
-            </Route>
-        </Route>
-    </Router>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Fragment>
+            <Header />
+            <Switch>
+                <Route path="/" component={Home} />>
+                <Route path="/:serverName" component={MatchUpOverview} />
+                <Route component={Home} />
+            </Switch>
+        </Fragment>
+        
+    </BrowserRouter>
 );

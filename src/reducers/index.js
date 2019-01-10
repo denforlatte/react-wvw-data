@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 //Reducers
-import wvwServerData from './wvwMetadata';
+import wvwServerData from './wvwServerData';
 import wvwMatchUpData from './wvwMatchUpData';
 
 //Combine Reducers
