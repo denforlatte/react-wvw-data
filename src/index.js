@@ -6,7 +6,7 @@ import store from './store';
 import router from './router';
 
 ReactDOM.render(
-    <App />,
+    <Provider store={store} >{router}</Provider>,
     document.getElementById('root')
 );
 
