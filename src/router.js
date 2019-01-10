@@ -10,15 +10,13 @@ import MatchUpOverview from './components/MatchUpOverview';
 
 
 export default (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <Fragment>
-            <Header />
+    <BrowserRouter>
+        
             <Switch>
-                <Route path="/" component={Home} />>
+                <Route path="/" component={Home} exact/>>
                 <Route path="/:serverName" component={MatchUpOverview} />
                 <Route component={Home} />
             </Switch>
-        </Fragment>
         
     </BrowserRouter>
 );
