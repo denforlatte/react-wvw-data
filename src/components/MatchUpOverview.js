@@ -1,8 +1,9 @@
 import React from 'react';
+import ServerOverview from './ServerOverview';
 
 class MatchUpOverview extends React.Component {
     render() {
-        return <div>{this.props.match.params.serverName}</div>;
+        return <ServerOverview serverName={this.props.match.params.serverName} />;
     }
 }
 
