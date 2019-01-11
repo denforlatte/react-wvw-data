@@ -1,0 +1,63 @@
+body {
+  background-color: #999;
+  padding: 20px;
+}
+
+h2 {
+  margin: 0;
+  padding: 5px 5px 5px 10px;
+}
+
+.row {
+  display: flex;
+}
+
+.row * {
+  flex-grow: 1;
+}
+
+.card {
+  background-color: rgba(30, 30, 30, 0.7);
+  margin: 20px;
+  color: #eee;
+}
+
+.card div * {
+  text-align: center;
+}
+
+.grey {
+  border: 1px solid #777;
+}
+.grey h2 {
+  background-color: #777;
+}
+
+.red {
+  border: 1px solid #a22;
+}
+.red h2 {
+  background-color: #a22;
+}
+
+.green {
+  border: 1px solid #2a2;
+}
+.green h2 {
+  background-color: #2a2;
+}
+
+.blue {
+  border: 1px solid #22a;
+}
+.blue h2 {
+  background-color: #22a;
+}
+
+.bar {
+  width: 90%;
+  margin: auto;
+  border: 1px solid #555;
+}
+
+/*# sourceMappingURL=main.css.map */
