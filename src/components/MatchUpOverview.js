@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import ServerOverview from './ServerOverview';
 import MapDetails from './MapDetails';
 import store from '../store';
@@ -15,12 +17,12 @@ class MatchUpOverview extends React.Component {
     }
 
     render() {
+        var overviews = this.compileServerOverview();
+
         return (
             <div>
                 <div className="row-responsive">
-                    <ServerOverview serverName={this.props.match.params.serverName} colour="red" score={9999} />
-                    <ServerOverview serverName={"Green"} colour="green" score={8888} />
-                    <ServerOverview serverName={"Blue"}  colour="blue" score={7777} />
+                    {overviews}
                 </div>
                 <div className="bar"></div>
                 <div className="row-responsive">
@@ -32,6 +34,38 @@ class MatchUpOverview extends React.Component {
             </div>
         )
     }
+
+    compileServerOverview() {
+        const { serverOverview } = this.props;
+        var serverColours = Object.getOwnPropertyNames(serverOverview);
+        var overviews = [];
+        var i;
+
+        for (i = 0; i < 3; i++) {
+            var colour = serverColours[i];
+            var server = serverOverview[colour];
+
+            overviews.push(
+                <ServerOverview
+                    key={colour}
+                    name= {colour}
+                    colour={colour}
+                    kills={server.kills}
+                    deaths={server.deaths}
+                    ratio={server.ratio}
+                    score={server.skirmishScore}
+                    victoryPoints={server.victoryPoints}
+                />
+            );
+        }
+        return overviews;
+    }
 }
 
-export default MatchUpOverview;
+const mapStateToProps = function(store) {
+    return {
+        serverOverview: store.serverOverviewState
+    };
+}
+
+export default connect(mapStateToProps)(MatchUpOverview);

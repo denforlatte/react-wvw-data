@@ -8,7 +8,29 @@ const initialState = {
         firstFetchSucess: false,
         fetching: false
     },
-    matchUpDataState: {},
+    serverOverviewState: {
+        red: {
+            kills: 0,
+            deaths: 0,
+            ratio: 0,
+            skirmishScore: 0,
+            victoryPoints: 0
+        },
+        green: {
+            kills: 0,
+            deaths: 0,
+            ratio: 0,
+            skirmishScore: 0,
+            victoryPoints: 0
+        },
+        blue: {
+            kills: 0,
+            deaths: 0,
+            ratio: 0,
+            skirmishScore: 0,
+            victoryPoints: 0
+        }
+    },
     activityAnalyticsState: {}
 }
 
