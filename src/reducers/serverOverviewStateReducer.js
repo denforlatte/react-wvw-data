@@ -4,6 +4,8 @@ import * as analyticsHelper from '../helpers/analyticsHelper';
 const serverOverviewStateReducer = function(state={}, action) {
     switch (action.type) {
         case "FETCH_MATCHUP_DATA_FULFILLED": {
+            if (!action.payload.worlds) { console.warn("Server code not found.") }
+
             var scores = action.payload.skirmishes[action.payload.skirmishes.length - 1].scores;
             return {
                 ...state,

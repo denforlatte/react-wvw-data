@@ -1,5 +1,6 @@
 import serverCodes from './serverCodes.json';
 
+//Get server name
 export function getNameByCode(serverCode) {
     var serverName = '';
 
@@ -10,10 +11,26 @@ export function getNameByCode(serverCode) {
             return serverName;
         }
     }
-
     return serverCode.toString();
 }
 
+
+//Get server code. UNTESTED
+export function getCodeByName(serverName) {
+    var serverCode = '';
+    var lowercaseServerName = serverName.toLowerCase();
+
+    var i;
+    for (i = 0; i < serverCodes.length; i++) {
+        if (serverCodes[i].name.toLowerCase() === lowercaseServerName) {
+            serverCode = serverCodes[i].id
+            return serverCode;
+        }
+    }
+    return '';
+}
+
+//Display the server names in a human way
 export function formatServerNames(primaryServer, allServers) {
     var links = '';
 

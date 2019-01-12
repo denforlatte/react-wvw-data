@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import * as serverHelper from '../helpers/serverHelper';
+
 import ServerOverview from './ServerOverview';
 import MapDetails from './MapDetails';
 import store from '../store';
@@ -9,9 +11,11 @@ class MatchUpOverview extends React.Component {
     //Look up server match up and assign servers to colours/borderlands
 
     componentDidMount() {
+        var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
+
         store.dispatch({
             type: "FETCH_MATCHUP_DATA",
-            payload: fetch("https://api.guildwars2.com/v2/wvw/matches?world=2003")
+            payload: fetch(`https://api.guildwars2.com/v2/wvw/matches?world=${serverCode}`)
             .then(response => response.json())
         });
     }
