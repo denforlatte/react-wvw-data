@@ -48,7 +48,7 @@ class MatchUpOverview extends React.Component {
             overviews.push(
                 <ServerOverview
                     key={colour}
-                    name= {colour}
+                    name= {server.name}
                     colour={colour}
                     kills={server.kills}
                     deaths={server.deaths}

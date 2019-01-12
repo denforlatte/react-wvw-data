@@ -39,14 +39,15 @@ h2 {
 .row-responsive {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 }
 @media (min-width: 1024px) {
   .row-responsive {
     flex-direction: row;
   }
 }
-.row-responsive * {
-  flex-grow: 1;
+.row-responsive > * {
+  width: 30%;
 }
 
 .row-fixed {

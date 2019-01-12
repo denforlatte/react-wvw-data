@@ -14,13 +14,14 @@ h2 {
 .row-responsive {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 
     @include desktop {
         flex-direction: row;
     }
 
-    * {
-        flex-grow: 1;
+    > * {
+        width: 30%;
     }
 }
 

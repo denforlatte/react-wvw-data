@@ -10,6 +10,7 @@ const initialState = {
     },
     serverOverviewState: {
         red: {
+            name: "blank",
             kills: 0,
             deaths: 0,
             ratio: 0,
@@ -17,6 +18,7 @@ const initialState = {
             victoryPoints: 0
         },
         green: {
+            name: "blank",
             kills: 0,
             deaths: 0,
             ratio: 0,
@@ -24,6 +26,7 @@ const initialState = {
             victoryPoints: 0
         },
         blue: {
+            name: "blank",
             kills: 0,
             deaths: 0,
             ratio: 0,
