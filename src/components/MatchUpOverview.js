@@ -29,12 +29,6 @@ class MatchUpOverview extends React.Component {
                     {overviews}
                 </div>
                 <div className="bar"></div>
-                <div className="row-responsive">
-                    <MapDetails mapName="Eternal Battlegrounds" colour="grey" />
-                    <MapDetails mapName="Red Borderland" colour="red" />
-                    <MapDetails mapName="Green Borderland" colour="green" />
-                    <MapDetails mapName="Blue Borderland" colour="blue" />
-                </div>
             </div>
         )
     }

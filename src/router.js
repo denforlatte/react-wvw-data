@@ -12,7 +12,6 @@ import MatchUpOverview from './components/MatchUpOverview';
 export default (
     <BrowserRouter>
         <Fragment>
-            <Header />
             <Switch>
                 <Route path="/" component={Home} exact/>>
                 <Route path="/:serverName" component={MatchUpOverview} />
