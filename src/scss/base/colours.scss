@@ -8,3 +8,26 @@ $red: #a22;
 $green: #2a2;
 $blue: #22a;
 $grey: #777;
+
+
+//Simple colour rules
+.grey {
+    border: 1px solid $grey;
+    h2 { background-color: $grey}
+}
+
+.red {
+    border: 1px solid $red;
+    h2{ background-color: $red }
+}
+
+
+.green {
+    border: 1px solid $green;
+    h2 { background-color: $green }
+}
+
+.blue {
+    border: 1px solid $blue;
+    h2 { background-color: $blue }
+}

@@ -35,32 +35,9 @@ h2 {
     background-color: $theme-card;
     margin: 20px;
     color: $theme-font;
-}
-
-.card div * {
-    text-align: center;
-    
-}
-
-.grey {
-    border: 1px solid $grey;
-    h2 { background-color: $grey}
-}
-
-.red {
-    border: 1px solid $red;
-    h2{ background-color: $red }
-}
-
-
-.green {
-    border: 1px solid $green;
-    h2 { background-color: $green }
-}
-
-.blue {
-    border: 1px solid $blue;
-    h2 { background-color: $blue }
+    div * {
+        text-align: center;
+    }
 }
 
 .bar {
