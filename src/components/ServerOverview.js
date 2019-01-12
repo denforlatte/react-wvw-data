@@ -2,6 +2,8 @@ import React from 'react';
 
 class ServerOverview extends React.Component {
     render() {
+        const { score } = this.props;
+
         let classes = `card ${this.props.colour}`;
 
         return (
@@ -24,7 +26,7 @@ class ServerOverview extends React.Component {
                 <div className="row-fixed">
                     <div>
                         <h3>Skirmish Score</h3>
-                        <p>9999</p>
+                        <p>{score}</p>
                     </div>
                     <div>
                         <h3>Victory Points</h3>
