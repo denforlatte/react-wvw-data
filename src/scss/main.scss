@@ -1,4 +1,5 @@
-@import 'base/colours.scss';
+@import 'base/module';
+@import 'utils/module';
 
 body {
     background-color: $theme-background;
@@ -10,12 +11,24 @@ h2 {
     padding: 5px 5px 5px 10px;
 }
 
-.row {
+.row-responsive {
     display: flex;
+    flex-direction: column;
+
+    @include desktop {
+        flex-direction: row;
+    }
+
+    * {
+        flex-grow: 1;
+    }
 }
 
-.row * {
-    flex-grow: 1;
+.row-fixed {
+    display: flex;
+    * {
+        flex-grow: 1;
+    }
 }
 
 .card {

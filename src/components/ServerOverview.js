@@ -7,7 +7,7 @@ class ServerOverview extends React.Component {
         return (
             <div className={classes}>
                 <h2>{this.props.serverName}</h2>
-                <div className="row">
+                <div className="row-fixed">
                     <div>
                         <h3>Kills</h3>
                         <p>99 999</p>
@@ -21,7 +21,7 @@ class ServerOverview extends React.Component {
                         <p>99 999</p>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row-fixed">
                     <div>
                         <h3>Skirmish Score</h3>
                         <p>9999</p>

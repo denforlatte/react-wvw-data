@@ -8,11 +8,23 @@ h2 {
   padding: 5px 5px 5px 10px;
 }
 
-.row {
+.row-responsive {
   display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1024px) {
+  .row-responsive {
+    flex-direction: row;
+  }
+}
+.row-responsive * {
+  flex-grow: 1;
 }
 
-.row * {
+.row-fixed {
+  display: flex;
+}
+.row-fixed * {
   flex-grow: 1;
 }
 
