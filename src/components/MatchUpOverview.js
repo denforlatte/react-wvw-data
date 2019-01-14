@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as serverHelper from '../helpers/serverHelper';
+import * as analyticsHelper from '../helpers/analyticsHelper';
 
 import ServerOverview from './ServerOverview';
 import MapDetails from './MapDetails';
@@ -20,8 +21,9 @@ class MatchUpOverview extends React.Component {
         });
     }
 
+    //Rough draft of a render statement while details are still being ironed out
     render() {
-        var overviews = this.compileServerOverview();
+        var overviews = this.compileServerOverviews();
 
         return (
             <div>
@@ -39,7 +41,8 @@ class MatchUpOverview extends React.Component {
         )
     }
 
-    compileServerOverview() {
+    //Loop through the servers assigning values from store to props for <ServerOverview /> to display
+    compileServerOverviews() {
         const { serverOverview } = this.props;
         var serverColours = Object.getOwnPropertyNames(serverOverview);
         var overviews = [];
@@ -52,12 +55,13 @@ class MatchUpOverview extends React.Component {
             overviews.push(
                 <ServerOverview
                     key={colour}
-                    name= {server.name}
+                    name={server.name}
                     colour={colour}
-                    kills={server.kills}
-                    deaths={server.deaths}
-                    ratio={server.ratio}
-                    score={server.skirmishScore}
+                    ppt={server.ppt}
+                    kills={analyticsHelper.beautifyNumber(server.kills)}
+                    deaths={analyticsHelper.beautifyNumber(server.deaths)}
+                    ratio={analyticsHelper.beautifyNumber(server.ratio)}
+                    score={analyticsHelper.beautifyNumber(server.skirmishScore)}
                     victoryPoints={server.victoryPoints}
                 />
             );

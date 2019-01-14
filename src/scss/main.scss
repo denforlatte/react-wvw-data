@@ -9,6 +9,7 @@ body {
 h2 {
     margin: 0;
     padding: 5px 5px 5px 10px;
+    text-align: left !important;
 }
 
 .row-responsive {
@@ -45,4 +46,10 @@ h2 {
     width: 90%;
     margin: auto;
     border: 1px solid #555;
+}
+
+
+//Very specific
+.ppt {
+    max-width: 95px;
 }

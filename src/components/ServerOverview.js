@@ -2,13 +2,17 @@ import React from 'react';
 
 class ServerOverview extends React.Component {
     render() {
-        const { name, colour, kills, deaths, ratio, score, victoryPoints } = this.props;
+        const { name, colour, ppt, kills, deaths, ratio, score, victoryPoints } = this.props;
 
         let classes = `card ${colour}`;
 
         return (
             <div className={classes}>
-                <h2>{name}</h2>
+                <div className="row-fixed">
+                    <h2>{name}</h2>
+                    <h2 className="ppt">+{ppt} PPT</h2>
+                </div>
+
                 <div className="row-fixed">
                     <div>
                         <h3>Kills</h3>

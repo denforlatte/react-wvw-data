@@ -13,21 +13,21 @@ $grey: #777;
 //Simple colour rules
 .grey {
     border: 1px solid $grey;
-    h2 { background-color: $grey}
+    > :first-child { background-color: $grey}
 }
 
 .red {
     border: 1px solid $red;
-    h2{ background-color: $red }
+    > :first-child { background-color: $red }
 }
 
 
 .green {
     border: 1px solid $green;
-    h2 { background-color: $green }
+    > :first-child { background-color: $green }
 }
 
 .blue {
     border: 1px solid $blue;
-    h2 { background-color: $blue }
+    > :first-child { background-color: $blue }
 }

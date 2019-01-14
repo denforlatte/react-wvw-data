@@ -1,28 +1,28 @@
 .grey {
   border: 1px solid #777;
 }
-.grey h2 {
+.grey > :first-child {
   background-color: #777;
 }
 
 .red {
   border: 1px solid #a22;
 }
-.red h2 {
+.red > :first-child {
   background-color: #a22;
 }
 
 .green {
   border: 1px solid #2a2;
 }
-.green h2 {
+.green > :first-child {
   background-color: #2a2;
 }
 
 .blue {
   border: 1px solid #22a;
 }
-.blue h2 {
+.blue > :first-child {
   background-color: #22a;
 }
 
@@ -34,6 +34,7 @@ body {
 h2 {
   margin: 0;
   padding: 5px 5px 5px 10px;
+  text-align: left !important;
 }
 
 .row-responsive {
@@ -70,6 +71,10 @@ h2 {
   width: 90%;
   margin: auto;
   border: 1px solid #555;
+}
+
+.ppt {
+  max-width: 95px;
 }
 
 /*# sourceMappingURL=main.css.map */
