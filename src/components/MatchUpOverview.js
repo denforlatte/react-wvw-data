@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import * as serverHelper from '../helpers/serverHelper';
 import * as analyticsHelper from '../helpers/analyticsHelper';
 
-import Header from '../components/layouts/Header';
 import ServerOverview from './ServerOverview';
 import MapDetails from './MapDetails';
 import store from '../store';
@@ -15,7 +14,7 @@ class MatchUpOverview extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentServer: ''
+            currentServer: 'testtttttttttttttttttttt'
         }
     }
 
@@ -30,7 +29,6 @@ class MatchUpOverview extends React.Component {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
         if (serverCode !== this.state.currentServer){
             this.setState({currentServer: serverCode});
-            console.log(this.state.currentServer);
             this.updateMatchupData(serverCode);
         }
         return true;
@@ -38,8 +36,15 @@ class MatchUpOverview extends React.Component {
 
     //Rough draft of a render statement while details are still being ironed out
     render() {
-        var overviews = this.compileServerOverviews();
+        const { displayState } = this.props;
 
+        //Show loading
+        if (displayState.firstFetchSuccess === false || displayState.fetching === true) {
+            return <p>Loading...</p>
+        }
+
+        //Data has returned. Full display.
+        var overviews = this.compileServerOverviews();
         return (
             <div>
                 <div className="row-responsive">
@@ -95,6 +100,7 @@ class MatchUpOverview extends React.Component {
 
 const mapStateToProps = function(store) {
     return {
+        displayState: store.displayState,
         serverOverview: store.serverOverviewState
     };
 }

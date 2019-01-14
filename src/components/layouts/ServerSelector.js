@@ -15,26 +15,22 @@ class ServerSelector extends React.Component {
 
     componentDidMount() {
         const { continent } = this.props;
-        var serverList = [];
-
-        var i;
-        for (i = 0; i < serverCodes.length; i++) {
-            var server = serverCodes[i];
-
-            if (continent === "EU") {
-                if (server.id >= 2000){
-                    serverList.push(
-                        <div key={"dropdown_" + server.id} ><Link to={"/"+server.id} >{server.name}</Link></div>
-                    )
-                }
-            } else if (continent === "NA") {
-                if (server < 2000) {
-                    serverList.push(
-                        <div key={"dropdown_" + server.id} ><Link to={"/"+server.id} >{server.name}</Link></div>
-                    )
-                }
-            }
+        var filteredServers = [];
+        
+        if (continent === "EU") {
+            filteredServers = serverCodes.filter(server => server.id >= 2000);
+        } else if (continent === "NA") {
+            filteredServers = serverCodes.filter(server => server.id < 2000);
+        } else {
+            filteredServers = serverCodes;
+            console.warn("Continent for ServerSelector not set correctly");
         }
+
+
+        var serverList = filteredServers.map((server) => (
+            <Link to={"/" + server.id} key={"dropdown " + server.id}>{server.name}</Link>
+            ));
+
 
         this.setState({serverList});
     }
