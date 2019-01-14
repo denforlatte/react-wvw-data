@@ -4,21 +4,36 @@ import { connect } from 'react-redux';
 import * as serverHelper from '../helpers/serverHelper';
 import * as analyticsHelper from '../helpers/analyticsHelper';
 
+import Header from '../components/layouts/Header';
 import ServerOverview from './ServerOverview';
 import MapDetails from './MapDetails';
 import store from '../store';
 
+//Look up server match up and assign servers to colours/borderlands
 class MatchUpOverview extends React.Component {
-    //Look up server match up and assign servers to colours/borderlands
+    //Needed?
+    constructor(props) {
+        super(props)
+        this.state = {
+            currentServer: ''
+        }
+    }
 
     componentDidMount() {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
 
-        store.dispatch({
-            type: "FETCH_MATCHUP_DATA",
-            payload: fetch(`https://api.guildwars2.com/v2/wvw/matches?world=${serverCode}`)
-            .then(response => response.json())
-        });
+        this.updateMatchupData(serverCode);
+        this.setState({currentServer: serverCode});
+    }
+
+    componentDidUpdate(nextProps, nextState) {
+        var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
+        if (serverCode !== this.state.currentServer){
+            this.setState({currentServer: serverCode});
+            console.log(this.state.currentServer);
+            this.updateMatchupData(serverCode);
+        }
+        return true;
     }
 
     //Rough draft of a render statement while details are still being ironed out
@@ -39,6 +54,14 @@ class MatchUpOverview extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    updateMatchupData(serverCode) {
+        store.dispatch({
+            type: "FETCH_MATCHUP_DATA",
+            payload: fetch(`https://api.guildwars2.com/v2/wvw/matches?world=${serverCode}`)
+            .then(response => response.json())
+        });
     }
 
     //Loop through the servers assigning values from store to props for <ServerOverview /> to display

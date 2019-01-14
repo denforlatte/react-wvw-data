@@ -27,7 +27,7 @@ export function getCodeByName(serverName) {
             return serverCode;
         }
     }
-    return '';
+    return serverName;
 }
 
 //Display the server names in a human way
