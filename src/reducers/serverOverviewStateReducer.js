@@ -1,7 +1,7 @@
 import * as serverHelper from '../helpers/serverHelper';
 import * as analyticsHelper from '../helpers/analyticsHelper';
 
-const serverOverviewStateReducer = function(state={}, action) {
+const serverOverviewStateReducer = function(state = {}, action) {
     switch (action.type) {
         case "FETCH_MATCHUP_DATA_FULFILLED": {
             if (!action.payload.worlds) { console.warn("Server code not found.") }
@@ -10,6 +10,7 @@ const serverOverviewStateReducer = function(state={}, action) {
             return {
                 ...state,
                 red: {
+                    ...state.red,
                     name: serverHelper.formatServerNames(action.payload.worlds.red, action.payload.all_worlds.red),
                     kills: action.payload.kills.red,
                     deaths: action.payload.deaths.red,
@@ -18,6 +19,7 @@ const serverOverviewStateReducer = function(state={}, action) {
                     victoryPoints: action.payload.victory_points.red
                 },
                 green: {
+                    ...state.green,
                     name: serverHelper.formatServerNames(action.payload.worlds.green, action.payload.all_worlds.green),
                     kills: action.payload.kills.green,
                     deaths: action.payload.deaths.green,
@@ -26,6 +28,7 @@ const serverOverviewStateReducer = function(state={}, action) {
                     victoryPoints: action.payload.victory_points.green
                 },
                 blue: {
+                    ...state.blue,
                     name: serverHelper.formatServerNames(action.payload.worlds.blue, action.payload.all_worlds.blue),
                     kills: action.payload.kills.blue,
                     deaths: action.payload.deaths.blue,
@@ -34,6 +37,9 @@ const serverOverviewStateReducer = function(state={}, action) {
                     victoryPoints: action.payload.victory_points.blue
                 }
             }
+        }
+        case "UPDATE_PPT": {
+            return state;
         }
         default: {
             return state;

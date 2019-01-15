@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    color: $theme-font;
+
+    h1 {
+        font-size: 40px;
+        margin: 0px;
+    }
+}
