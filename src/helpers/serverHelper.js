@@ -44,6 +44,7 @@ export function formatServerNames(primaryServer, allServers) {
         }
     }
 
+    //This needs to check there IS a linked server:
     var serverName = `${getNameByCode(primaryServer)} with ${links}`;
     
     return serverName; 
