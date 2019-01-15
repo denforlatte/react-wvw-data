@@ -53,9 +53,7 @@ class MatchUpOverview extends React.Component {
                     {overviews}
                 </div>
                 <div className="bar"></div>
-                <div className="row-responsive">
-                    
-                </div>
+                
             </div>
         )
     }
