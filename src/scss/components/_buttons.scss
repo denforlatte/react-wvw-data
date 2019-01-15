@@ -1,12 +1,20 @@
 .btn-container {
     padding: 2px;
     font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    @include desktop {
+        flex-direction: row;
+    }
 }
 
 .btn-dropdown {
     background-color: $grey;
     color: $theme-font;
-    width: 200px;
+    width: 190px;
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -20,7 +28,6 @@
 
 .dropdown-container {
     position: relative;
-    display: inline-block;
 
     &:hover {
         .btn-dropdown {
@@ -36,7 +43,7 @@
     display: none;
     position: absolute;
     background-color: $theme-font;
-    min-width: 200px;
+    width: 190px;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
     z-index: 1;
 

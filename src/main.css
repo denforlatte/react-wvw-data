@@ -34,12 +34,21 @@
 .btn-container {
   padding: 2px;
   font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+@media (min-width: 1024px) {
+  .btn-container {
+    flex-direction: row;
+  }
 }
 
 .btn-dropdown {
   background-color: #777;
   color: #eee;
-  width: 200px;
+  width: 190px;
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -53,7 +62,6 @@
 
 .dropdown-container {
   position: relative;
-  display: inline-block;
 }
 .dropdown-container:hover .btn-dropdown {
   background-color: #777;
@@ -66,7 +74,7 @@
   display: none;
   position: absolute;
   background-color: #eee;
-  min-width: 200px;
+  width: 190px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
@@ -84,11 +92,13 @@
 .header {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   color: #eee;
 }
 .header h1 {
   font-size: 40px;
   margin: 0px;
+  width: 400px !important;
 }
 
 .home {
