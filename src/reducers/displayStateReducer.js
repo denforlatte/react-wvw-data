@@ -9,9 +9,16 @@ const displayStateReducer = function(state={}, action) {
         case "FETCH_MATCHUP_DATA_FULFILLED": {
             return {
                 ...state, 
-                firstFetchSucess: true,
+                firstFetchSuccess: true,
                 fetching: false
             };
+        }
+        case "SELECT_NEW_SERVER": {
+            return {
+                ...state,
+                firstFetchSuccess: false,
+                selectedServer: action.payload
+            }
         }
         default: {
             return state;

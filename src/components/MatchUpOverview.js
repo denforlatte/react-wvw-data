@@ -24,14 +24,23 @@ class MatchUpOverview extends React.Component {
 
         this.updateMatchupData(serverCode);
         this.setState({currentServer: serverCode});
+
+        store.dispatch({
+            type: "SELECT_NEW_SERVER",
+            payload: serverCode
+        });
     }
 
     //Fetch new match up data if a new sever is selected
-    componentDidUpdate(nextProps, nextState) {
+    componentDidUpdate() {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
         if (serverCode !== this.state.currentServer){
             this.setState({currentServer: serverCode});
             this.updateMatchupData(serverCode);
+            store.dispatch({
+                type: "SELECT_NEW_SERVER",
+                payload: serverCode
+            });
         }
         return true;
     }
@@ -58,6 +67,7 @@ class MatchUpOverview extends React.Component {
         )
     }
 
+    //Can be moved later
     updateMatchupData(serverCode) {
         store.dispatch({
             type: "FETCH_MATCHUP_DATA",

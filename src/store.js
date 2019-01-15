@@ -5,7 +5,8 @@ import promise from 'redux-promise-middleware';
 
 const initialState = {
     displayState: {
-        firstFetchSucess: false,
+        selectedServer: '',
+        firstFetchSuccess: false,
         fetching: false
     },
     serverOverviewState: {
