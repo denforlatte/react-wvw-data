@@ -6,11 +6,14 @@ class ServerOverview extends React.Component {
 
         let classes = `card ${colour}`;
 
+        //For later. :3
+        var pptStore = '<h2 className="ppt">+{ppt} PPT</h2>';
+
         return (
             <div className={classes}>
                 <div className="row-fixed">
                     <h2>{name}</h2>
-                    <h2 className="ppt">+{ppt} PPT</h2>
+                    
                 </div>
 
                 <div className="row-fixed">

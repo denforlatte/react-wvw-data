@@ -14,10 +14,11 @@ class MatchUpOverview extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentServer: 'testtttttttttttttttttttt'
+            currentServer: ''
         }
     }
 
+    //Get the code of the desired server, fetch the match up data, store server code in state.
     componentDidMount() {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
 
@@ -25,6 +26,7 @@ class MatchUpOverview extends React.Component {
         this.setState({currentServer: serverCode});
     }
 
+    //Fetch new match up data if a new sever is selected
     componentDidUpdate(nextProps, nextState) {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
         if (serverCode !== this.state.currentServer){
@@ -52,10 +54,7 @@ class MatchUpOverview extends React.Component {
                 </div>
                 <div className="bar"></div>
                 <div className="row-responsive">
-                    <MapDetails mapName="Eternal Battlegrounds" colour="grey" />
-                    <MapDetails mapName="Red Borderland" colour="red" />
-                    <MapDetails mapName="Green Borderland" colour="green" />
-                    <MapDetails mapName="Blue Borderland" colour="blue" />
+                    
                 </div>
             </div>
         )
