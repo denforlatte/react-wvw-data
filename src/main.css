@@ -26,8 +26,35 @@
   background-color: #22a;
 }
 
+.reset-a, .reset-a:link, .reset-a:visited, .reset-a:hover, .reset-a:focus, .reset-a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.u-cancel-a, .u-cancel-a:link, .u-cancel-a:visited, .u-cancel-a:hover, .u-cancel-a:focus, .u-cancel-a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:link {
+  color: #9b4fc1;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover, a:focus {
+  color: #CE4A4A;
+}
+
+a:active {
+  color: inherit;
+}
+
 .btn-container {
   padding: 2px;
+  font-size: 30px;
 }
 
 .btn-dropdown {
@@ -82,6 +109,11 @@
 .header h1 {
   font-size: 40px;
   margin: 0px;
+}
+
+.home {
+  max-width: 1200px;
+  margin: auto;
 }
 
 body {
