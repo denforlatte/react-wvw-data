@@ -145,9 +145,9 @@ h2 {
   .row-responsive {
     flex-direction: row;
   }
-}
-.row-responsive > * {
-  width: 30%;
+  .row-responsive > * {
+    width: 30%;
+  }
 }
 
 .row-fixed {

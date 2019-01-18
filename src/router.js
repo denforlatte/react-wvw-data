@@ -10,7 +10,7 @@ import MatchUpOverview from './components/MatchUpOverview';
 
 
 export default (
-    <BrowserRouter basename="/react-wvw-data">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Fragment>
             <Header />
             <Switch>
