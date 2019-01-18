@@ -45,7 +45,11 @@ export function formatServerNames(primaryServer, allServers) {
     }
 
     //This needs to check there IS a linked server:
-    var serverName = `${getNameByCode(primaryServer)} with ${links}`;
+    var serverName = getNameByCode(primaryServer);
+
+    if (allServers.length > 1) {
+        serverName = `${serverName} with ${links}`;
+    }
     
     return serverName; 
 }
