@@ -32,23 +32,24 @@ export function getCodeByName(serverName) {
 
 //Display the server names in a human way
 export function formatServerNames(primaryServer, allServers) {
-    var links = '';
+    var linkServers = '';
 
+    //Form a string of the linked server(s) with "&" between them if multiple
     var i;
     for (i = 0; i < allServers.length; i++) {
         if (allServers[i] !== primaryServer) {
-            if (links !== '') {
-                links = '& '
+            if (linkServers !== '') {
+                linkServers = '& '
             }
-            links = links + getNameByCode(allServers[i]);
+            linkServers = linkServers + getNameByCode(allServers[i]);
         }
     }
 
-    //This needs to check there IS a linked server:
+    //Return server name with links if applicable
     var serverName = getNameByCode(primaryServer);
 
     if (allServers.length > 1) {
-        serverName = `${serverName} with ${links}`;
+        serverName = `${serverName} with ${linkServers}`;
     }
     
     return serverName; 

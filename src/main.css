@@ -33,7 +33,6 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   font-family: Calibri, "Trebuchet MS", sans-serif;
-  font-family: inherit;
 }
 
 .header {
@@ -145,9 +144,9 @@ h2 {
   .row-responsive {
     flex-direction: row;
   }
-}
-.row-responsive > * {
-  width: 30%;
+  .row-responsive > * {
+    width: 30%;
+  }
 }
 
 .row-fixed {
