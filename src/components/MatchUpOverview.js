@@ -45,6 +45,13 @@ class MatchUpOverview extends React.Component {
         return true;
     }
 
+    componentWillUnmount() {
+        store.dispatch({
+            type: "SELECT_NEW_SERVER",
+            payload: ''
+        });
+    }
+
     //Rough draft of a render statement while details are still being ironed out
     render() {
         const { displayState } = this.props;

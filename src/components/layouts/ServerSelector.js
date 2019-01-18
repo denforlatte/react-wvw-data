@@ -12,6 +12,8 @@ class ServerSelector extends React.Component {
             serverList: [],
             filteredServers: []
         }
+
+        this.handleClick = this.handleClick.bind();
     }
 
     componentDidMount() {
@@ -42,10 +44,11 @@ class ServerSelector extends React.Component {
     //If firstFetchSuccess is false, the dropdrown menu won't show. 
     //The usefulness for this is that changing selected server sets this to false until the data is in, causing the menu you close.
     render() {
-        if (this.props.firstFetchSuccess === false) {
-            return <DropdownButton buttonText={this.props.continent} dropdownContent={[]}/>
-        }
         return <DropdownButton buttonText={this.props.continent} dropdownContent={this.state.serverList}/>
+    }
+
+    handleClick() {
+        this.setState({serverList: []});
     }
 
     compileDropdownMenu() {
@@ -62,7 +65,7 @@ class ServerSelector extends React.Component {
                 );
             } else {
                 serverList.push(
-                    <Link to={"/" + server.id} key={"dropdown " + server.id} >{server.name}</Link>
+                    <Link to={"/" + server.id} key={"dropdown " + server.id} onClick={() => this.handleClick()}>{server.name}</Link>
                 );
             }
         }
