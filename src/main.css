@@ -6,36 +6,35 @@
 }
 
 .red {
-  border: 1px solid #a22;
+  border: 1px solid #922;
 }
 .red > :first-child {
-  background-color: #a22;
+  background-color: #922;
 }
 
 .green {
-  border: 1px solid #2a2;
+  border: 1px solid #292;
 }
 .green > :first-child {
-  background-color: #2a2;
+  background-color: #292;
 }
 
 .blue {
-  border: 1px solid #22a;
+  border: 1px solid #229;
 }
 .blue > :first-child {
-  background-color: #22a;
+  background-color: #229;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Calibri, "Trebuchet MS", sans-serif;
-  font-family: inherit;
 }
 
 p {
   font-family: Calibri, "Trebuchet MS", sans-serif;
 }
 
-.header {
+.header, .header h1, .header h2 {
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -154,6 +153,10 @@ h2 {
 }
 .row-fixed * {
   flex-grow: 1;
+}
+.row-fixed h2 span {
+  font-size: 0.875em;
+  color: #bbb;
 }
 
 .card {

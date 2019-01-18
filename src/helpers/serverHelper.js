@@ -1,3 +1,4 @@
+import React from 'react';
 import serverCodes from './serverCodes.json';
 
 //Get server name
@@ -46,11 +47,14 @@ export function formatServerNames(primaryServer, allServers) {
     }
 
     //Return server name with links if applicable
-    var serverName = getNameByCode(primaryServer);
+    primaryServer = getNameByCode(primaryServer);
 
     if (allServers.length > 1) {
-        serverName = `${serverName} with ${linkServers}`;
+        linkServers = ` (linked with ${linkServers})`;
     }
     
-    return serverName; 
+    return (
+        <div className="row-fixed">
+            <h2>{primaryServer}<span>{linkServers}</span></h2>
+        </div>); 
 }

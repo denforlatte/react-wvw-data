@@ -11,7 +11,8 @@ class ServerOverview extends React.Component {
         return (
             <div className={classes}>
                 <div className="row-fixed">
-                    <h2>{name}</h2>
+                    <div>{name}</div>
+                    <h2 className="ppt">+{ppt} PPT</h2>
                 </div>
 
                 <div className="row-fixed">
