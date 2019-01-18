@@ -13,7 +13,7 @@ class Header extends React.Component {
                 <div>
                     <div className="btn-container">
                         <br/>
-                        <div>Select world: &nbsp;</div>
+                        <h2>Select world:&nbsp;</h2>
                         <ServerSelector continent="EU" selectedServer={selectedServer} firstFetchSuccess={firstFetchSuccess}/>
                         <br/>
                         <ServerSelector continent="NA" selectedServer={selectedServer} firstFetchSuccess={firstFetchSuccess}/>
