@@ -1,7 +1,7 @@
 import React from 'react';
 
 class ServerOverview extends React.Component {
-    //  <h2 className="ppt">+{ppt} PPT</h2>
+    //   <h2 className="ppt">+{ppt} PPT</h2>
     
     render() {
         const { name, colour, ppt, kills, deaths, ratio, score, victoryPoints } = this.props;
