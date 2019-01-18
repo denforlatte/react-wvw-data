@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/react-wvw-data/static/js/runtime~main.8713bbf4.js"
   },
   {
-    "revision": "f4fed8da415cf57c1fb0",
-    "url": "/react-wvw-data/static/js/main.f4fed8da.chunk.js"
+    "revision": "c46ceb316a2ddcf0ada5",
+    "url": "/react-wvw-data/static/js/main.c46ceb31.chunk.js"
   },
   {
     "revision": "78c2cc66d4260de15b32",
     "url": "/react-wvw-data/static/js/1.78c2cc66.chunk.js"
   },
   {
-    "revision": "f4fed8da415cf57c1fb0",
-    "url": "/react-wvw-data/static/css/main.b97b69b8.chunk.css"
+    "revision": "c46ceb316a2ddcf0ada5",
+    "url": "/react-wvw-data/static/css/main.b8e9ec67.chunk.css"
   },
   {
-    "revision": "e80e51265fb7f55a129a849d9b5a298b",
+    "revision": "e8ac604cbe810a74c3591197bed24ff8",
     "url": "/react-wvw-data/index.html"
   }
 ];
