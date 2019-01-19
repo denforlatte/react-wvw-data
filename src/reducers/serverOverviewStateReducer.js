@@ -6,6 +6,7 @@ const serverOverviewStateReducer = function(state = {}, action) {
         case "FETCH_MATCHUP_DATA_FULFILLED": {
             if (!action.payload.worlds) { console.warn("Server code not found.") }
 
+            //Get the score from the most recent skirmish (ultimate entry in skirmishes[] )
             var scores = action.payload.skirmishes[action.payload.skirmishes.length - 1].scores;
             return {
                 ...state,
@@ -38,8 +39,16 @@ const serverOverviewStateReducer = function(state = {}, action) {
                 }
             }
         }
+        //Potentially obsolete
         case "UPDATE_PPT": {
-            return state;
+            console.log("updating ppt");
+            return {
+                ...state,
+                red: {
+                    ...state,
+                    ppt: action.payload
+                }   
+            }
         }
         default: {
             return state;

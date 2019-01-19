@@ -10,7 +10,6 @@ import store from '../store';
 
 //Look up server match up and assign servers to colours/borderlands
 class MatchUpOverview extends React.Component {
-    //Needed?
     constructor(props) {
         super(props)
         this.state = {
@@ -22,7 +21,7 @@ class MatchUpOverview extends React.Component {
     componentDidMount() {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
 
-        this.updateMatchupData(serverCode);
+        analyticsHelper.updateMatchupData(serverCode);
         this.setState({currentServer: serverCode});
 
         store.dispatch({
@@ -36,13 +35,12 @@ class MatchUpOverview extends React.Component {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
         if (serverCode !== this.state.currentServer){
             this.setState({currentServer: serverCode});
-            this.updateMatchupData(serverCode);
+            analyticsHelper.updateMatchupData(serverCode);;
             store.dispatch({
                 type: "SELECT_NEW_SERVER",
                 payload: serverCode
             });
         }
-        return true;
     }
 
     componentWillUnmount() {
@@ -74,18 +72,9 @@ class MatchUpOverview extends React.Component {
         )
     }
 
-    //Can be moved later
-    updateMatchupData(serverCode) {
-        store.dispatch({
-            type: "FETCH_MATCHUP_DATA",
-            payload: fetch(`https://api.guildwars2.com/v2/wvw/matches?world=${serverCode}`)
-            .then(response => response.json())
-        });
-    }
-
     //Loop through the servers assigning values from store to props for <ServerOverview /> to display
     compileServerOverviews() {
-        const { serverOverview } = this.props;
+        const { serverOverview, activityAnalytics } = this.props;
         var serverColours = Object.getOwnPropertyNames(serverOverview);
         var overviews = [];
         var i;
@@ -93,6 +82,14 @@ class MatchUpOverview extends React.Component {
         for (i = 0; i < 3; i++) {
             var colour = serverColours[i];
             var server = serverOverview[colour];
+            
+            //Add up PPT from maps
+            var j;
+            server.ppt = 0;
+            var maps = Object.getOwnPropertyNames(activityAnalytics);
+            for (j = 0; j < maps.length; j++) {
+                server.ppt += activityAnalytics[maps[j]].currentPPT[colour];
+            }
 
             overviews.push(
                 <ServerOverview
@@ -115,7 +112,8 @@ class MatchUpOverview extends React.Component {
 const mapStateToProps = function(store) {
     return {
         displayState: store.displayState,
-        serverOverview: store.serverOverviewState
+        serverOverview: store.serverOverviewState,
+        activityAnalytics: store.activityAnalyticsState
     };
 }
 

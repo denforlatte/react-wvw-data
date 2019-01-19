@@ -33,6 +33,12 @@ h2 {
     * {
         flex-grow: 1;
     }
+
+    // Formatting for the tops of the cards.
+    h2 span {
+        font-size: 0.875em;
+        color: $link-grey;
+    }
 }
 
 .card {
@@ -55,4 +61,5 @@ h2 {
 .ppt {
     max-width: 90px;
     white-space: nowrap;
+    text-align: right !important;
 }
