@@ -22,7 +22,7 @@ class MatchUpOverview extends React.Component {
     componentDidMount() {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
 
-        this.updateMatchupData(serverCode);
+        analyticsHelper.updateMatchupData(serverCode);
         this.setState({currentServer: serverCode});
 
         store.dispatch({
@@ -36,7 +36,7 @@ class MatchUpOverview extends React.Component {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
         if (serverCode !== this.state.currentServer){
             this.setState({currentServer: serverCode});
-            this.updateMatchupData(serverCode);
+            analyticsHelper.updateMatchupData(serverCode);;
             store.dispatch({
                 type: "SELECT_NEW_SERVER",
                 payload: serverCode
@@ -72,15 +72,6 @@ class MatchUpOverview extends React.Component {
                 
             </div>
         )
-    }
-
-    //Can be moved later
-    updateMatchupData(serverCode) {
-        store.dispatch({
-            type: "FETCH_MATCHUP_DATA",
-            payload: fetch(`https://api.guildwars2.com/v2/wvw/matches?world=${serverCode}`)
-            .then(response => response.json())
-        });
     }
 
     //Loop through the servers assigning values from store to props for <ServerOverview /> to display

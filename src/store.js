@@ -38,7 +38,36 @@ const initialState = {
             victoryPoints: 0
         }
     },
-    activityAnalyticsState: {}
+    activityAnalyticsState: {
+        eternalBattlegrounds: {
+            currentPPT: {
+                red: 0,
+                green: 0,
+                blue: 0
+            }
+        },
+        redBorderland: {
+            currentPPT: {
+                red: 0,
+                green: 0,
+                blue: 0
+            }
+        },
+        greenBorderland: {
+            currentPPT: {
+                red: 0,
+                green: 0,
+                blue: 0
+            }
+        },
+        blueBorderland: {
+            currentPPT: {
+                red: 0,
+                green: 0,
+                blue: 0
+            }
+        }
+    }
 }
 
 const store = createStore(reducers, initialState, applyMiddleware(logger, promise()));
