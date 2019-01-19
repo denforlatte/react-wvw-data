@@ -10,7 +10,6 @@ import store from '../store';
 
 //Look up server match up and assign servers to colours/borderlands
 class MatchUpOverview extends React.Component {
-    //Needed?
     constructor(props) {
         super(props)
         this.state = {

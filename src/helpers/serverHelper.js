@@ -16,7 +16,7 @@ export function getCodeByName(serverName) {
     for (i = 0; i < serverCodes.length; i++) {
         if (serverCodes[i].name.toLowerCase() === lowercaseServerName) {
             serverCode = serverCodes[i].id
-            return serverCode;
+            return serverCode.toString();
         }
     }
     return serverName;
