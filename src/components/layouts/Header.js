@@ -9,7 +9,7 @@ class Header extends React.Component {
 
         return (
             <div className="header">
-                <h1><Link to={"/"} className="reset-a">Guild Wars 2 WvW Intel</Link></h1>
+                <h1><Link to={"/"} className="reset-a">Guild Wars 2 WvW Overview</Link></h1>
                 <div>
                     <div className="btn-container">
                         <br/>
