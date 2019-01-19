@@ -3,16 +3,7 @@ import serverCodes from './serverCodes.json';
 
 //Get server name
 export function getNameByCode(serverCode) {
-    var serverName = '';
-
-    var i;
-    for (i = 0; i < serverCodes.length; i++) {
-        if (serverCodes[i].id === serverCode) {
-            serverName = serverCodes[i].name
-            return serverName;
-        }
-    }
-    return serverCode.toString();
+    return serverCodes.find( server => server.id === serverCode).name;
 }
 
 

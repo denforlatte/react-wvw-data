@@ -42,7 +42,6 @@ class MatchUpOverview extends React.Component {
                 payload: serverCode
             });
         }
-        return true;
     }
 
     componentWillUnmount() {
@@ -76,7 +75,7 @@ class MatchUpOverview extends React.Component {
 
     //Loop through the servers assigning values from store to props for <ServerOverview /> to display
     compileServerOverviews() {
-        const { serverOverview } = this.props;
+        const { serverOverview, activityAnalytics } = this.props;
         var serverColours = Object.getOwnPropertyNames(serverOverview);
         var overviews = [];
         var i;
@@ -84,6 +83,14 @@ class MatchUpOverview extends React.Component {
         for (i = 0; i < 3; i++) {
             var colour = serverColours[i];
             var server = serverOverview[colour];
+            
+            //Add up PPT from maps
+            var j;
+            server.ppt = 0;
+            var maps = Object.getOwnPropertyNames(activityAnalytics);
+            for (j = 0; j < maps.length; j++) {
+                server.ppt += activityAnalytics[maps[j]].currentPPT[colour];
+            }
 
             overviews.push(
                 <ServerOverview
@@ -106,7 +113,8 @@ class MatchUpOverview extends React.Component {
 const mapStateToProps = function(store) {
     return {
         displayState: store.displayState,
-        serverOverview: store.serverOverviewState
+        serverOverview: store.serverOverviewState,
+        activityAnalytics: store.activityAnalyticsState
     };
 }
 

@@ -17,36 +17,56 @@ export function updateMatchupData(serverCode) {
     store.dispatch({
         type: "FETCH_MATCHUP_DATA",
         payload: fetch(`https://api.guildwars2.com/v2/wvw/matches?world=${serverCode}`)
-        .then((response) => {
-            var result = response.json()
-            return result;
-
-            //This needs to then hand response.maps to calculatePPT(maps).
-        })
+        .then(response => response.json())
     });
 }
 
 export function calculatePPT(maps) {
+    var servers = ["red", "green", "blue"];
 
-    console.log(maps);
+    var calculatedPPT = {
+        eternalBattlegrounds: {
+            currentPPT: {}
+        },
+        redBorderland: {
+            currentPPT: {}
+        },
+        greenBorderland: {
+            currentPPT: {}
+        },
+        blueBorderland: {
+            currentPPT: {}
+        }
+    };
+
+    var i;
+    for (i = 0; i < 3; i++) {
+        calculatedPPT.eternalBattlegrounds.currentPPT[servers[i]] = totalMapPPT(1, servers[i])
+    }
+    for (i = 0; i < 3; i++) {
+        calculatedPPT.redBorderland.currentPPT[servers[i]] = totalMapPPT(0, servers[i])
+    }
+    for (i = 0; i < 3; i++) {
+        calculatedPPT.greenBorderland.currentPPT[servers[i]] = totalMapPPT(2, servers[i])
+    }
+    for (i = 0; i < 3; i++) {
+        calculatedPPT.blueBorderland.currentPPT[servers[i]] = totalMapPPT(3, servers[i])
+    }
     
 
-
-    //Don't worry about the following code. The problem is that maps is undefined
-    store.dispatch({
-        type: "UPDATE_PPT",
-        payload: totalMapPPT(0)
-    })
-
-    function totalMapPPT (mapI) {
+    function totalMapPPT (mapI, server) {
         var objectives = maps[mapI].objectives;
         var totalMapPPT = 0;
         
-        var i;
-        for (i = 0; i < objectives.length; i++) {
-            totalMapPPT += objectives[i].points_tick;
+        var x;
+        for (x = 0; x < objectives.length; x++) {
+            if (objectives[x].owner.toLowerCase() === server) {
+                totalMapPPT += objectives[x].points_tick;
+            }
         }
 
-        return 5;
+        return totalMapPPT;
     }
+
+    return calculatedPPT;
 }

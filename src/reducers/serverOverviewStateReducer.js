@@ -39,7 +39,9 @@ const serverOverviewStateReducer = function(state = {}, action) {
                 }
             }
         }
+        //Potentially obsolete
         case "UPDATE_PPT": {
+            console.log("updating ppt");
             return {
                 ...state,
                 red: {

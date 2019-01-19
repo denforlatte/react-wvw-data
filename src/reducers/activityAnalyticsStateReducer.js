@@ -2,35 +2,26 @@ import * as analyticsHelper from '../helpers/analyticsHelper';
 
 const activityAnalyticsStateReducer = function(state={}, action) {
     switch (action.type) {
-        case "UPDATE_PPT": {
-            if (!action.payload.worlds) { 
-                console.warn("Server code not found.") 
-                return state;
-            }
+        case "FETCH_MATCHUP_DATA_FULFILLED": {
 
-            var currentSkirmish = action.payload.skirmishes[action.payload.skirmishes.length - 1];
+            var calculatedPPT = analyticsHelper.calculatePPT(action.payload.maps);
             return {
                 ...state,
-                red: {
-                    ...state.red,
-                    eBPPT: 0,
-                    redBLPPT: 0,
-                    greenBLPPT: 0,
-                    blueBLPPT: 0
+                eternalBattlegrounds: {
+                    ...state.eternalBattlegrounds,
+                    currentPPT: calculatedPPT.eternalBattlegrounds.currentPPT
                 },
-                green: {
-                    ...state.green,
-                    eBPPT: 0,
-                    redBLPPT: 0,
-                    greenBLPPT: 0,
-                    blueBLPPT: 0
+                redBorderland: {
+                    ...state.redBorderland,
+                    currentPPT: calculatedPPT.redBorderland.currentPPT
                 },
-                blue: {
-                    ...state.blue,
-                    eBPPT: 0,
-                    redBLPPT: 0,
-                    greenBLPPT: 0,
-                    blueBLPPT: 0
+                greenBorderland: {
+                    ...state.greenBorderland,
+                    currentPPT: calculatedPPT.greenBorderland.currentPPT
+                },
+                blueBorderland: {
+                    ...state.blueBorderland,
+                    currentPPT: calculatedPPT.blueBorderland.currentPPT
                 }
             }
         }
