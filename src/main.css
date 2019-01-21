@@ -28,7 +28,6 @@
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Calibri, "Trebuchet MS", sans-serif;
-  font-family: inherit;
 }
 
 p {
@@ -36,7 +35,7 @@ p {
 }
 
 .header, .header h1, .header h2 {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Courier New", Courier, monospace !important;
 }
 
 .reset-a, .reset-a:link, .reset-a:visited, .reset-a:hover, .reset-a:focus, .reset-a:active {
