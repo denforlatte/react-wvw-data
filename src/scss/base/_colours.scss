@@ -13,23 +13,23 @@ $grey: #777;
 $link-grey: #bbb;
 
 //Simple colour rules
-.grey {
+.card-grey {
     border: 1px solid $grey;
-    > :first-child { background-color: $grey}
 }
+.grey { background-color: $grey }
 
-.red {
+.card-red {
     border: 1px solid $red;
-    > :first-child { background-color: $red }
 }
+.red { background-color: $red }
 
 
-.green {
+.card-green {
     border: 1px solid $green;
-    > :first-child { background-color: $green }
 }
+.green { background-color: $green }
 
-.blue {
+.card-blue {
     border: 1px solid $blue;
-    > :first-child { background-color: $blue }
 }
+.blue { background-color: $blue }

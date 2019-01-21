@@ -4,11 +4,9 @@ class ServerOverview extends React.Component {
     render() {
         const { name, colour, ppt, kills, deaths, ratio, score, victoryPoints } = this.props;
 
-        let classes = `card ${colour}`;
-
         return (
-            <div className={classes}>
-                <div className="row-fixed">
+            <div className={`card card-${this.props.colour}`}>
+                <div className={`row-fixed ${this.props.colour}`}>
                     <div>{name}</div>
                     <h2 className="ppt">+ {ppt} PPT</h2>
                 </div>

@@ -59,7 +59,7 @@ class ServerSelector extends React.Component {
             var server = this.state.filteredServers[i];
             
 
-            if (server.id == this.props.selectedServer) {
+            if (server.id.toString() === this.props.selectedServer) {
                 serverList.push(
                     <Link to={"#"} key={"dropdown " + server.id} className="dropdown-active">{server.name}</Link>
                 );

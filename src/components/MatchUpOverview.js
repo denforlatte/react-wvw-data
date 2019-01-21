@@ -60,26 +60,30 @@ class MatchUpOverview extends React.Component {
         }
 
         //Data has returned. Full display.
-        var overviews = this.compileServerOverviews();
+        var serverOverviews = this.compileServerOverviews();
+        var mapDetails = this.compileMapDetails();
+
         return (
             <div>
                 <div className="row-responsive">
-                    {overviews}
+                    {serverOverviews}
                 </div>
                 <div className="bar"></div>
-                
+                <div className="row-responsive">
+                    {mapDetails}
+                </div>
             </div>
         )
     }
 
     //Loop through the servers assigning values from store to props for <ServerOverview /> to display
     compileServerOverviews() {
-        const { serverOverview, activityAnalytics } = this.props;
-        var serverColours = Object.getOwnPropertyNames(serverOverview);
+        const { fullAPI, serverOverview, activityAnalytics } = this.props;
+        var serverColours = Object.getOwnPropertyNames(fullAPI.worlds);
         var overviews = [];
-        var i;
 
-        for (i = 0; i < 3; i++) {
+        var i;
+        for (i = 0; i < serverColours.length; i++) {
             var colour = serverColours[i];
             var server = serverOverview[colour];
             
@@ -107,11 +111,42 @@ class MatchUpOverview extends React.Component {
         }
         return overviews;
     }
+
+    compileMapDetails() {
+        const { fullAPI, activityAnalytics } = this.props;
+        var mapDetails = [];
+
+        
+        mapDetails.push(
+            <MapDetails key="0" 
+            mapName="Eternal Battlegrounds" 
+            colour="grey"/>
+        );
+
+        
+        let serverColours = Object.getOwnPropertyNames(fullAPI.worlds);
+        let i;
+        for (i = 0; i < serverColours.length; i++) {
+            let colour = serverColours[i];
+
+            mapDetails.push(
+                <MapDetails 
+                    key={fullAPI.worlds[colour]} 
+                    mapName={`${serverHelper.getNameByCode(fullAPI.worlds[colour])} Borderland`} 
+                    colour={colour}
+                />
+            );
+        }      
+        
+
+        return mapDetails;
+    }
 }
 
 const mapStateToProps = function(store) {
     return {
         displayState: store.displayState,
+        fullAPI: store.fullAPIState,
         serverOverview: store.serverOverviewState,
         activityAnalytics: store.activityAnalyticsState
     };

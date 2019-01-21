@@ -1,34 +1,37 @@
-.grey {
+.card-grey {
   border: 1px solid #777;
 }
-.grey > :first-child {
+
+.grey {
   background-color: #777;
 }
 
-.red {
+.card-red {
   border: 1px solid #922;
 }
-.red > :first-child {
+
+.red {
   background-color: #922;
 }
 
-.green {
+.card-green {
   border: 1px solid #292;
 }
-.green > :first-child {
+
+.green {
   background-color: #292;
 }
 
-.blue {
+.card-blue {
   border: 1px solid #229;
 }
-.blue > :first-child {
+
+.blue {
   background-color: #229;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Calibri, "Trebuchet MS", sans-serif;
-  font-family: inherit;
 }
 
 p {
@@ -36,7 +39,7 @@ p {
 }
 
 .header, .header h1, .header h2 {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Courier New", Courier, monospace !important;
 }
 
 .reset-a, .reset-a:link, .reset-a:visited, .reset-a:hover, .reset-a:focus, .reset-a:active {

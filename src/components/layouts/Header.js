@@ -15,7 +15,6 @@ class Header extends React.Component {
                         <br/>
                         <h2>Select world:&nbsp;</h2>
                         <ServerSelector continent="EU" selectedServer={selectedServer} firstFetchSuccess={firstFetchSuccess}/>
-                        <br/>
                         <ServerSelector continent="NA" selectedServer={selectedServer} firstFetchSuccess={firstFetchSuccess}/>
                     </div>
                 </div>

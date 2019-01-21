@@ -1,13 +1,11 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: Calibri, 'Trebuchet MS', sans-serif;
-    font-family: inherit;
 }
 
 p {
     font-family: Calibri, 'Trebuchet MS', sans-serif;
-    font-family: inherit;
 }
 
 .header, .header h1, .header h2 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace !important;
 }
