@@ -1,13 +1,13 @@
 import React from 'react';
 import serverCodes from './serverCodes.json';
 
-//Get server name
+//Get server name from server code
 export function getNameByCode(serverCode) {
     return serverCodes.find( server => server.id === serverCode).name;
 }
 
 
-//Get server code. UNTESTED
+//Get server code from server name
 export function getCodeByName(serverName) {
     var serverCode = '';
     var lowercaseServerName = serverName.toLowerCase();

@@ -113,7 +113,7 @@ class MatchUpOverview extends React.Component {
     }
 
     compileMapDetails() {
-        const { fullAPI, activityAnalytics } = this.props;
+        const { fullAPI } = this.props;
         var mapDetails = [];
 
         

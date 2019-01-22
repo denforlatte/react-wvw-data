@@ -32,6 +32,7 @@
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Calibri, "Trebuchet MS", sans-serif;
+  margin: 0px;
 }
 
 p {
@@ -163,13 +164,17 @@ h2 {
   color: #bbb;
 }
 
-.card {
+.card, .inner-card {
   background-color: rgba(30, 30, 30, 0.7);
   margin: 20px;
   color: #eee;
 }
-.card div * {
+.card div *, .inner-card div * {
   text-align: center;
+}
+
+.inner-card {
+  margin: 1px 4px 1px 4px;
 }
 
 .bar {
