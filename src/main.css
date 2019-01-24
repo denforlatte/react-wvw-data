@@ -15,7 +15,7 @@
 }
 
 .inner-card-red {
-  background-color: #823939;
+  background-color: #784343;
 }
 
 .card-green {
@@ -27,7 +27,7 @@
 }
 
 .inner-card-green {
-  background-color: #398239;
+  background-color: #437843;
 }
 
 .card-blue {
@@ -39,7 +39,7 @@
 }
 
 .inner-card-blue {
-  background-color: #393982;
+  background-color: #434378;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -128,12 +128,12 @@ p {
   background-color: #777 !important;
 }
 
-.card, .inner-card, .data-component-card {
+.card, .data-component-card {
   background-color: rgba(30, 30, 30, 0.7);
-  margin: 20px;
+  margin: 10px;
   color: #eee;
 }
-.card div *, .inner-card div *, .data-component-card div * {
+.card div *, .data-component-card div * {
   text-align: center;
 }
 
@@ -144,7 +144,11 @@ p {
 }
 
 .inner-card {
-  margin: 2px 4px 2px 4px;
+  color: #eee;
+  margin: 4px 4px 4px 4px;
+}
+.inner-card div * {
+  text-align: center;
 }
 
 .card-compact * {
@@ -170,6 +174,8 @@ p {
 body {
   background-color: #999;
   padding: 20px;
+  max-width: 2000px;
+  margin: auto;
 }
 
 h2 {

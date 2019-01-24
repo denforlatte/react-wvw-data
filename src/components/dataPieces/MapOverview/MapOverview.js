@@ -26,6 +26,8 @@ class MapOverview extends React.Component {
         const { mapName, servers, activityAnalytics, kills, deaths} = this.props;
 
         let mapServerScores = [];
+        const positions = ["1st", "2nd", "3rd"];
+        let counter = 0;
 
         for (let map in mapScores) {
             let colour = mapScores[map][0];
@@ -35,10 +37,11 @@ class MapOverview extends React.Component {
                     key={`${mapName}_${colour}`}
                     serverName={serverHelper.getNameByCode(servers[colour])}
                     colour={colour}
+                    position={positions[counter++]}
                     score={mapScores[map][1]}
                     ppt={activityAnalytics.currentPPT[colour]}
-                    kills={kills[colour]}
-                    deaths={deaths[colour]}
+                    kills={`${analyticsHelper.round(kills[colour]/1000, 1)}k`}
+                    deaths={`${analyticsHelper.round(deaths[colour]/1000, 1)}k`}
                     ratio={analyticsHelper.round(kills[colour]/deaths[colour], 2)}
                 />
             );

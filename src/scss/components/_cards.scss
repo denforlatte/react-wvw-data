@@ -1,6 +1,6 @@
 .card {
     background-color: $theme-card;
-    margin: 20px;
+    margin: 10px;
     color: $theme-font;
     div * {
         text-align: center;
@@ -15,8 +15,12 @@
 }
 
 .inner-card {
-    @extend .card;
-    margin: 2px 4px 2px 4px;
+    color: $theme-font;
+    margin: 4px 4px 4px 4px;
+
+    div * {
+        text-align: center;
+    }
 }
 
 .card-compact * {
