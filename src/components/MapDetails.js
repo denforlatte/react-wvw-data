@@ -25,6 +25,9 @@ class MapDetails extends React.Component {
                     servers={fullAPI.worlds}
                     mapScores={fullAPI.skirmishes[fullAPI.skirmishes.length-1].map_scores[this.state.mapArrayPosition].scores}
                 />
+                <div>
+                    Testing
+                </div>
             </div>
         )
     }

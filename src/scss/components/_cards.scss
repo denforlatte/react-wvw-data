@@ -1,0 +1,24 @@
+.card {
+    background-color: $theme-card;
+    margin: 20px;
+    color: $theme-font;
+    div * {
+        text-align: center;
+    }
+}
+
+.data-component-card {
+    @extend .card;
+    margin: 0px;
+    background-color: rgba(0,0,0,0);
+    padding: 5px 0 5px 0;
+}
+
+.inner-card {
+    @extend .card;
+    margin: 2px 4px 2px 4px;
+}
+
+.card-compact * {
+    margin: 2px;
+}

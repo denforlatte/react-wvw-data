@@ -13,23 +13,17 @@ $grey: #777;
 $link-grey: #bbb;
 
 //Simple colour rules
-.card-grey {
-    border: 1px solid $grey;
-}
+.card-grey { border: 1px solid $grey; }
 .grey { background-color: $grey }
 
-.card-red {
-    border: 1px solid $red;
-}
+.card-red { border: 1px solid $red}
 .red { background-color: $red }
+.inner-card-red { background-color: desaturate($red, 20%)}
 
-
-.card-green {
-    border: 1px solid $green;
-}
+.card-green { border: 1px solid $green; }
 .green { background-color: $green }
+.inner-card-green { background-color: desaturate($green, 20%)}
 
-.card-blue {
-    border: 1px solid $blue;
-}
+.card-blue { border: 1px solid $blue; }
 .blue { background-color: $blue }
+.inner-card-blue { background-color: desaturate($blue, 20%)}

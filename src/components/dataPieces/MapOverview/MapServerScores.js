@@ -7,12 +7,20 @@ class MapServerScores extends React.Component {
 
         return (
             <div className={`inner-card card-${colour}`}>
-                <div className={`row-fixed ${colour}`}>
-                    <h3>{serverName}</h3>
+                <div className={`row-fixed inner-card-${colour}`}>
+                    <h3 className="left-align">{"1st"} {serverName}</h3>
                 </div>
 
-                <div>
-                    <p>{score}</p>
+                <div className="card-compact row-fixed">
+                    <div>
+                        <p>Score: {999}</p>
+                    </div>
+                    <div>
+                        <p>PPT: {999}</p>
+                    </div>
+                    <div>
+                        <p>K/D/R: {9999}/{9999}/{1.38}</p>
+                    </div>
                 </div>
             </div>
         );

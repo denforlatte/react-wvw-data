@@ -10,8 +10,13 @@ class MapOverview extends React.Component {
         let mapServerScores = this.compileMapServerScores(this.orderByMapScore());
 
         return (
-            <div>
-                {mapServerScores}
+            <div className="data-component-card">
+                <div className="row-fixed">
+                    <h3 className="left-align">Map Overview</h3>
+                </div>
+                <div>
+                    {mapServerScores}
+                </div>
             </div>
         );
     }
