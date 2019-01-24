@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as serverHelper from '../../../helpers/serverHelper';
+import * as analyticsHelper from '../../../helpers/analyticsHelper';
 
 import MapServerScores from './MapServerScores';
 
-import * as serverHelper from '../../../helpers/serverHelper';
 
 class MapOverview extends React.Component {
     render() {
@@ -22,17 +23,23 @@ class MapOverview extends React.Component {
     }
     
     compileMapServerScores(mapScores) {
-        const { mapName, servers } = this.props;
+        const { mapName, servers, activityAnalytics, kills, deaths} = this.props;
 
         let mapServerScores = [];
 
         for (let map in mapScores) {
+            let colour = mapScores[map][0];
+            
             mapServerScores.push(
                 <MapServerScores
-                    key={`${mapName}_${mapScores[map][0]}`}
-                    serverName={serverHelper.getNameByCode(servers[mapScores[map][0]])}
-                    colour={mapScores[map][0]}
+                    key={`${mapName}_${colour}`}
+                    serverName={serverHelper.getNameByCode(servers[colour])}
+                    colour={colour}
                     score={mapScores[map][1]}
+                    ppt={activityAnalytics.currentPPT[colour]}
+                    kills={kills[colour]}
+                    deaths={deaths[colour]}
+                    ratio={analyticsHelper.round(kills[colour]/deaths[colour], 2)}
                 />
             );
         }
@@ -56,7 +63,10 @@ class MapOverview extends React.Component {
 MapOverview.propTypes = {
     mapName: PropTypes.string.isRequired,
     servers: PropTypes.object.isRequired,
-    mapScores: PropTypes.object.isRequired
+    mapScores: PropTypes.object.isRequired,
+    activityAnalytics: PropTypes.object.isRequired,
+    kills: PropTypes.object.isRequired,
+    deaths: PropTypes.object.isRequired
 }
 
 export default MapOverview;

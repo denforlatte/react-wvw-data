@@ -113,14 +113,17 @@ class MatchUpOverview extends React.Component {
     }
 
     compileMapDetails() {
-        const { fullAPI } = this.props;
+        const { fullAPI, activityAnalytics } = this.props;
         var mapDetails = [];
 
         
         mapDetails.push(
-            <MapDetails key="0" 
-            mapName="Eternal Battlegrounds" 
-            colour="grey"/>
+            <MapDetails 
+                key="0" 
+                mapName="Eternal Battlegrounds" 
+                colour="grey"
+                activityAnalytics={activityAnalytics.eternalBattlegrounds}
+            />
         );
 
         
@@ -134,6 +137,7 @@ class MatchUpOverview extends React.Component {
                     key={fullAPI.worlds[colour]} 
                     mapName={`${serverHelper.getNameByCode(fullAPI.worlds[colour])} Borderland`} 
                     colour={colour}
+                    activityAnalytics={activityAnalytics[`${colour}Borderland`]}
                 />
             );
         }      

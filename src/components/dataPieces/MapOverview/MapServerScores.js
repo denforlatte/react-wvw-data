@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class MapServerScores extends React.Component {
     render() {
-        const { serverName, colour, score } = this.props;
+        const { serverName, colour, score, ppt, kills, deaths, ratio } = this.props;
 
         return (
             <div className={`inner-card card-${colour}`}>
@@ -13,13 +13,13 @@ class MapServerScores extends React.Component {
 
                 <div className="card-compact row-fixed">
                     <div>
-                        <p>Score: {999}</p>
+                        <p>Score: {score}</p>
                     </div>
                     <div>
-                        <p>PPT: {999}</p>
+                        <p>PPT: {ppt}</p>
                     </div>
                     <div>
-                        <p>K/D/R: {9999}/{9999}/{1.38}</p>
+                        <p>K/D/R: {kills}/{deaths}/{ratio}</p>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,8 @@ class MapServerScores extends React.Component {
 MapServerScores.propTypes = {
     serverName: PropTypes.string.isRequired,
     colour: PropTypes.string.isRequired,
-    score: PropTypes.number.isRequired
+    score: PropTypes.number.isRequired,
+    ppt: PropTypes.number.isRequired
 }
 
 export default MapServerScores;

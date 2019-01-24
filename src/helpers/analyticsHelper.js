@@ -1,4 +1,5 @@
 import store from '../store';
+import * as serverHelper from './serverHelper';
 
 export function round(value, decimals) {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
@@ -41,16 +42,16 @@ export function calculatePPT(maps) {
 
     var i;
     for (i = 0; i < 3; i++) {
-        calculatedPPT.eternalBattlegrounds.currentPPT[servers[i]] = totalMapPPT(1, servers[i])
+        calculatedPPT.eternalBattlegrounds.currentPPT[servers[i]] = totalMapPPT(serverHelper.getMapArrayPosition("grey", maps), servers[i])
     }
     for (i = 0; i < 3; i++) {
-        calculatedPPT.redBorderland.currentPPT[servers[i]] = totalMapPPT(0, servers[i])
+        calculatedPPT.redBorderland.currentPPT[servers[i]] = totalMapPPT(serverHelper.getMapArrayPosition("red", maps), servers[i])
     }
     for (i = 0; i < 3; i++) {
-        calculatedPPT.greenBorderland.currentPPT[servers[i]] = totalMapPPT(2, servers[i])
+        calculatedPPT.greenBorderland.currentPPT[servers[i]] = totalMapPPT(serverHelper.getMapArrayPosition("green", maps), servers[i])
     }
     for (i = 0; i < 3; i++) {
-        calculatedPPT.blueBorderland.currentPPT[servers[i]] = totalMapPPT(3, servers[i])
+        calculatedPPT.blueBorderland.currentPPT[servers[i]] = totalMapPPT(serverHelper.getMapArrayPosition("blue", maps), servers[i])
     }
     
 

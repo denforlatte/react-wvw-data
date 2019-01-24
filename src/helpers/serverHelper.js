@@ -49,3 +49,31 @@ export function formatServerNames(primaryServer, allServers) {
             <h2>{primaryServer}<span>{linkServers}</span></h2>
         </div>); 
 }
+
+//Find which position in the array the desired map is in. Requires a colour and the API.maps object.
+
+/** Find which position in the array the desired map is in.
+ * Requires a colour and the API.maps object.
+ * 
+ * @param {string} colour 
+ * @param {object} maps 
+ */
+export function getMapArrayPosition(colour, maps) {
+
+    if (colour === "grey") {
+        let i;
+        for (i = 0; i < maps.length; i++) {
+            if ("Center" === maps[i].type) {
+                return i;
+            }
+        }
+    } else {
+        let i;
+        for (i = 0; i < maps.length; i++) {
+            if (`${colour}home` === maps[i].type.toLowerCase()) {
+                return i;
+            }
+        }
+    }
+    console.warn("Was not able to find map in API.maps: " + colour);
+}

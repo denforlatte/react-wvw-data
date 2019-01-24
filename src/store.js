@@ -45,11 +45,6 @@ const initialState = {
                 red: 0,
                 green: 0,
                 blue: 0
-            },
-            kdr: {
-                kills: 0,
-                deaths: 0,
-                ratio: 0,
             }
         },
         redBorderland: {
@@ -57,11 +52,6 @@ const initialState = {
                 red: 0,
                 green: 0,
                 blue: 0
-            },
-            kdr: {
-                kills: 0,
-                deaths: 0,
-                ratio: 0,
             }
         },
         greenBorderland: {
@@ -69,11 +59,6 @@ const initialState = {
                 red: 0,
                 green: 0,
                 blue: 0
-            },
-            kdr: {
-                kills: 0,
-                deaths: 0,
-                ratio: 0,
             }
         },
         blueBorderland: {
@@ -81,11 +66,6 @@ const initialState = {
                 red: 0,
                 green: 0,
                 blue: 0
-            },
-            kdr: {
-                kills: 0,
-                deaths: 0,
-                ratio: 0,
             }
         }
     }

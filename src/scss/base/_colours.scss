@@ -18,12 +18,12 @@ $link-grey: #bbb;
 
 .card-red { border: 1px solid $red}
 .red { background-color: $red }
-.inner-card-red { background-color: desaturate($red, 20%)}
+.inner-card-red { background-color: desaturate($red, 25%)}
 
 .card-green { border: 1px solid $green; }
 .green { background-color: $green }
-.inner-card-green { background-color: desaturate($green, 20%)}
+.inner-card-green { background-color: desaturate($green, 25%)}
 
 .card-blue { border: 1px solid $blue; }
 .blue { background-color: $blue }
-.inner-card-blue { background-color: desaturate($blue, 20%)}
+.inner-card-blue { background-color: desaturate($blue, 25%)}
