@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as serverHelper from '../helpers/serverHelper';
 
 import MapOverview from './dataPieces/MapOverview/MapOverview';
+import ObjectivesWonLost from './dataPieces/ObjectivesWonLost/ObjectivesWonLost';
 
 class MapDetails extends React.Component {
     constructor(props) {
@@ -30,9 +31,11 @@ class MapDetails extends React.Component {
                     kills={fullAPI.maps[mapArrayPosition].kills}
                     deaths={fullAPI.maps[mapArrayPosition].deaths}
                 />
-                <div>
-                    Testing
-                </div>
+                <ObjectivesWonLost
+                    mapName={mapName}
+                    servers={fullAPI.worlds}
+                    objectives={fullAPI.maps[mapArrayPosition].objectives}
+                />
             </div>
         )
     }
