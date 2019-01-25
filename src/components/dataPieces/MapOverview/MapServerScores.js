@@ -33,7 +33,7 @@ class MapServerScores extends React.Component {
 MapServerScores.propTypes = {
     serverName: PropTypes.string.isRequired,
     colour: PropTypes.string.isRequired,
-    position: PropTypes.number.isRequired,
+    position: PropTypes.string.isRequired,
     score: PropTypes.number.isRequired,
     ppt: PropTypes.number.isRequired
 }
