@@ -3,30 +3,39 @@ import Proptypes from 'prop-types';
 
 class ObjectivesDisplay extends React.Component {
     render() {
-        const { server, won } = this.props;
+        const { serverName, won, objectiveColours, stonemist } = this.props;
+        let stonemistIcon = (
+            <div className="row-fixed objective-container">
+                <p>{won.castle}x</p><span><div className={`icon-castle icon-${objectiveColours.castle}`}></div></span>
+            </div>
+        );
+        if (!stonemist) {
+            stonemistIcon = "";
+        }
+
+
         return(
-            <div className="row-fixed">
-                <h3>{`${server}: `}</h3>
+            <div className="objectives-grid">
+                <h4>{`${serverName}: `}</h4>
                 <div className="row-fixed objective-container">
-                    <p>{won.camp}x</p><span><div className={`icon-camp icon-${server}`}></div></span>
+                    <p>{won.camp}x</p><span><div className={`icon-camp icon-${objectiveColours.camp}`}></div></span>
                 </div>
                 <div className="row-fixed objective-container">
-                    <p>{won.tower}x</p><span><div className={`icon-tower icon-${server}`}></div></span>
+                    <p>{won.tower}x</p><span><div className={`icon-tower icon-${objectiveColours.tower}`}></div></span>
                 </div>
                 <div className="row-fixed objective-container">
-                    <p>{won.keep}x</p><span><div className={`icon-keep icon-${server}`}></div></span>
+                    <p>{won.keep}x</p><span><div className={`icon-keep icon-${objectiveColours.keep}`}></div></span>
                 </div>
-                <div className="row-fixed objective-container">
-                    <p>{won.castle}x</p><span><div className={`icon-castle icon-${server}`}></div></span>
-                </div>
+                {stonemistIcon}
             </div>
         );
     }
 }
 
 ObjectivesDisplay.propTypes = {
-    server: Proptypes.string.isRequired,
-    won: Proptypes.object.isRequired
+    serverName: Proptypes.string.isRequired,
+    won: Proptypes.object.isRequired,
+    objectiveColours: Proptypes.object.isRequired
 }
 
 export default ObjectivesDisplay;

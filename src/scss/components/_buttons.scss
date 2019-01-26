@@ -64,3 +64,17 @@
 .dropdown-active {
     background-color: $grey !important;
 }
+
+.objectives-btn {
+    background-color: $grey;
+    color: $theme-font;
+    border: 1px solid #444;
+    padding: 2px;
+    margin: 1px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.objectives-btn-active {
+    background-color: #222;
+}

@@ -1,10 +1,21 @@
+.objectives-grid {
+    display: grid;
+    grid-template-columns: 6fr 2fr 2fr 2fr 2fr;
+
+    h4 {
+        text-align: right !important;
+        padding: 10px 4px 0 4px;
+    }
+}
+
 .icon {
     height: 30px !important;
     width: 30px !important;
     font-size: 26px;
 }
 
-.objective-container {    
+.objective-container {
+    margin: 2px;
     p {
         padding-top: 10px;
         text-align: right !important;

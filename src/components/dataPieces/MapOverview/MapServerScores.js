@@ -21,7 +21,7 @@ class MapServerScores extends React.Component {
                         <p>{ppt}</p>
                     </div>
                     <div>
-                        <p>Total Map K/D/R:</p>
+                        <p>K/D/R:</p>
                         <p>{kills} / {deaths} / {ratio}</p>
                     </div>
                 </div>

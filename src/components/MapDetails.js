@@ -14,7 +14,7 @@ class MapDetails extends React.Component {
     }
 
     render() {
-        const { mapName, colour, fullAPI, activityAnalytics } = this.props;
+        const { mapName, colour, fullAPI, activityAnalytics, timeFrame, selectTimeFrame } = this.props;
         const { mapArrayPosition } = this.state;
 
         return (
@@ -22,7 +22,6 @@ class MapDetails extends React.Component {
                 <div className={`row-fixed ${colour}`}>
                     <h2>{mapName}</h2>
                 </div>
-                
                 <MapOverview
                     mapName={mapName}
                     servers={fullAPI.worlds}
@@ -31,10 +30,13 @@ class MapDetails extends React.Component {
                     kills={fullAPI.maps[mapArrayPosition].kills}
                     deaths={fullAPI.maps[mapArrayPosition].deaths}
                 />
+                <br/>
                 <ObjectivesWonLost
                     mapName={mapName}
                     servers={fullAPI.worlds}
                     objectives={fullAPI.maps[mapArrayPosition].objectives}
+                    timeFrame={timeFrame}
+                    selectTimeFrame={selectTimeFrame}
                 />
             </div>
         )
@@ -52,7 +54,9 @@ MapDetails.propTypes = {
     mapName: PropTypes.string.isRequired,
     colour: PropTypes.string,
     fullAPI: PropTypes.object.isRequired,
-    activityAnalytics: PropTypes.object.isRequired
+    activityAnalytics: PropTypes.object.isRequired,
+    timeFrame: PropTypes.number.isRequired,
+    selectTimeFrame: PropTypes.func.isRequired
 }
 
 const mapStateToProps = function(store) {

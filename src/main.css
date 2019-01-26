@@ -128,6 +128,20 @@ p {
   background-color: #777 !important;
 }
 
+.objectives-btn {
+  background-color: #777;
+  color: #eee;
+  border: 1px solid #444;
+  padding: 2px;
+  margin: 1px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.objectives-btn-active {
+  background-color: #222;
+}
+
 .card, .data-component-card {
   background-color: rgba(30, 30, 30, 0.7);
   margin: 10px;
@@ -171,12 +185,24 @@ p {
   margin: auto;
 }
 
+.objectives-grid {
+  display: grid;
+  grid-template-columns: 6fr 2fr 2fr 2fr 2fr;
+}
+.objectives-grid h4 {
+  text-align: right !important;
+  padding: 10px 4px 0 4px;
+}
+
 .icon, .icon-castle, .icon-keep, .icon-tower, .icon-camp {
   height: 30px !important;
   width: 30px !important;
   font-size: 26px;
 }
 
+.objective-container {
+  margin: 2px;
+}
 .objective-container p {
   padding-top: 10px;
   text-align: right !important;

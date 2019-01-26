@@ -13,8 +13,11 @@ class MatchUpOverview extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentServer: ''
+            currentServer: '',
+            timeFrame: 3600000
         }
+
+        this.selectTimeFrame = this.selectTimeFrame.bind(this);
     }
 
     //Get the code of the desired server, fetch the match up data, store server code in state.
@@ -114,6 +117,7 @@ class MatchUpOverview extends React.Component {
 
     compileMapDetails() {
         const { fullAPI, activityAnalytics } = this.props;
+        const { timeFrame } = this.state;
         var mapDetails = [];
 
         
@@ -123,6 +127,8 @@ class MatchUpOverview extends React.Component {
                 mapName="Eternal Battlegrounds" 
                 colour="grey"
                 activityAnalytics={activityAnalytics.eternalBattlegrounds}
+                timeFrame={timeFrame}
+                selectTimeFrame={this.selectTimeFrame}
             />
         );
 
@@ -138,12 +144,18 @@ class MatchUpOverview extends React.Component {
                     mapName={`${serverHelper.getNameByCode(fullAPI.worlds[colour])} Borderland`} 
                     colour={colour}
                     activityAnalytics={activityAnalytics[`${colour}Borderland`]}
+                    timeFrame={timeFrame}
+                    selectTimeFrame={this.selectTimeFrame}
                 />
             );
         }      
         
 
         return mapDetails;
+    }
+
+    selectTimeFrame(timeFrame) {
+        this.setState({timeFrame});
     }
 }
 
