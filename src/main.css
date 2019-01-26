@@ -171,6 +171,58 @@ p {
   margin: auto;
 }
 
+.icon, .icon-castle, .icon-keep, .icon-tower, .icon-camp {
+  height: 30px !important;
+  width: 30px !important;
+  font-size: 26px;
+}
+
+.objective-container p {
+  padding-top: 10px;
+  text-align: right !important;
+  margin: 0;
+}
+
+.icon-camp {
+  background-repeat: no-repeat;
+  -webkit-mask-image: url("/alpha_assets/barracks-tent_game-icons-net.svg");
+  mask-image: url("/alpha_assets/barracks-tent_game-icons-net.svg");
+}
+
+.icon-tower {
+  background-repeat: no-repeat;
+  -webkit-mask-image: url("/alpha_assets/white-tower_game-icons-net.svg");
+  mask-image: url("/alpha_assets/white-tower_game-icons-net.svg");
+}
+
+.icon-keep {
+  background-repeat: no-repeat;
+  -webkit-mask-image: url("/alpha_assets/tower-flag_game-icons.net.svg");
+  mask-image: url("/alpha_assets/tower-flag_game-icons.net.svg");
+}
+
+.icon-castle {
+  background-repeat: no-repeat;
+  -webkit-mask-image: url("/alpha_assets/castle_game-icons.net.svg");
+  mask-image: url("/alpha_assets/castle_game-icons.net.svg");
+}
+
+.icon-grey {
+  background-color: #777;
+}
+
+.icon-red {
+  background-color: #922;
+}
+
+.icon-blue {
+  background-color: #229;
+}
+
+.icon-green {
+  background-color: #292;
+}
+
 body {
   background-color: #999;
   padding: 20px;

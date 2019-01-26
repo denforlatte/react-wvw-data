@@ -1,0 +1,50 @@
+.icon {
+    height: 30px !important;
+    width: 30px !important;
+    font-size: 26px;
+}
+
+.objective-container {    
+    p {
+        padding-top: 10px;
+        text-align: right !important;
+        margin: 0;
+    }
+}
+
+.icon-camp {
+    @extend .icon;
+
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('/alpha_assets/barracks-tent_game-icons-net.svg');
+    mask-image: url('/alpha_assets/barracks-tent_game-icons-net.svg')
+}
+
+.icon-tower {
+    @extend .icon;
+
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('/alpha_assets/white-tower_game-icons-net.svg');
+    mask-image: url('/alpha_assets/white-tower_game-icons-net.svg')
+}
+
+.icon-keep {
+    @extend .icon;
+
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('/alpha_assets/tower-flag_game-icons.net.svg');
+    mask-image: url('/alpha_assets/tower-flag_game-icons.net.svg')
+}
+
+.icon-castle {
+    @extend .icon;
+
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('/alpha_assets/castle_game-icons.net.svg');
+    mask-image: url('/alpha_assets/castle_game-icons.net.svg')
+}
+
+.icon-grey { background-color: $grey }
+.icon-red { background-color: $red }
+.icon-blue { background-color: $blue }
+.icon-green { background-color: $green }

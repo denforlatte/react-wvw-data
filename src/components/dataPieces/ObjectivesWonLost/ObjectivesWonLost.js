@@ -9,8 +9,16 @@ class ObjectivesWonLost extends React.Component {
         this.totalObjectivesWonLost();
 
         return (
-            <div>
-                {objectivesDisplays}
+            <div className="data-component-card">
+                <div className="row-fixed">
+                    <h3 className="left-align">Objectives Gained</h3>
+                    <button>5 mins</button>
+                    <button>30 mins</button>
+                    <button>60 mins</button>
+                </div>
+                <div>
+                    {objectivesDisplays}
+                </div>
             </div>
         );
     }
@@ -18,13 +26,17 @@ class ObjectivesWonLost extends React.Component {
     compileObjectivesDisplays() {
         let objectivesDisplays = [];
         let serverColours = Object.getOwnPropertyNames(this.props.servers);
+        let objectivesWonLost = this.totalObjectivesWonLost();
 
         let i;
         for (i = 0; i < serverColours.length; i++) {
+            let server = serverColours[i];
+
             objectivesDisplays.push(
                 <ObjectivesDisplay
-                    key={`${this.props.mapName}_${serverColours[i]}`}
-                    server={serverColours[i]}
+                    key={`${this.props.mapName}_${server}`}
+                    server={server}
+                    won={objectivesWonLost[server]}
                 />
             )
         }
@@ -76,6 +88,8 @@ class ObjectivesWonLost extends React.Component {
                 objectivesWonLost[owner.toLowerCase()][type.toLowerCase()]++;
             }
         }
+
+        return objectivesWonLost;
     }
 }
 
