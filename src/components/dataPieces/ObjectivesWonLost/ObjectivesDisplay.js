@@ -13,7 +13,6 @@ class ObjectivesDisplay extends React.Component {
             stonemistIcon = "";
         }
 
-
         return(
             <div className="objectives-grid">
                 <h4>{`${serverName}: `}</h4>

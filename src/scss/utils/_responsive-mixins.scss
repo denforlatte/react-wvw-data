@@ -1,7 +1,5 @@
-$desktop-width: 1024px;
-
-@mixin desktop {
-  @media (min-width: #{$desktop-width}) {
+@mixin break-content($breakPoint: 1024) {
+  @media (min-width: #{$breakPoint}px) {
     @content;
   }
 }

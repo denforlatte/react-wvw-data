@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     justify-content: flex-end;
 
-    @include desktop {
+    @include break-content {
         flex-direction: row;
         align-items: center;
     }

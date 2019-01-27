@@ -68,11 +68,11 @@ class MatchUpOverview extends React.Component {
 
         return (
             <div>
-                <div className="row-responsive">
+                <div className="row-responsive-3">
                     {serverOverviews}
                 </div>
                 <div className="bar"></div>
-                <div className="row-responsive">
+                <div className="row-responsive-4">
                     {mapDetails}
                 </div>
             </div>
