@@ -215,26 +215,26 @@ p {
 
 .icon-camp {
   background-repeat: no-repeat;
-  -webkit-mask-image: url("/objective-icons/camp.svg");
-  mask-image: url("/objective-icons/camp.svg");
+  -webkit-mask-image: url("https://denforlatte.github.io/react-wvw-data//objective-icons/camp.svg");
+  mask-image: url("https://denforlatte.github.io/react-wvw-data//objective-icons/camp.svg");
 }
 
 .icon-tower {
   background-repeat: no-repeat;
-  -webkit-mask-image: url("/objective-icons/tower.svg");
-  mask-image: url("/objective-icons/tower.svg");
+  -webkit-mask-image: url("%PUBLIC_URL%/objective-icons/tower.svg");
+  mask-image: url("%PUBLIC_URL%/objective-icons/tower.svg");
 }
 
 .icon-keep {
   background-repeat: no-repeat;
-  -webkit-mask-image: url("/objective-icons/keep.svg");
-  mask-image: url("/objective-icons/keep.svg");
+  -webkit-mask-image: url("%PUBLIC_URL%/objective-icons/keep.svg");
+  mask-image: url("%PUBLIC_URL%/objective-icons/keep.svg");
 }
 
 .icon-castle {
   background-repeat: no-repeat;
-  -webkit-mask-image: url("/objective-icons/castle.svg");
-  mask-image: url("/objective-icons/castle.svg");
+  -webkit-mask-image: url("%PUBLIC_URL%/objective-icons/castle.svg");
+  mask-image: url("%PUBLIC_URL%/objective-icons/castle.svg");
 }
 
 .icon-grey {
