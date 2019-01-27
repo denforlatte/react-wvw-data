@@ -13,6 +13,8 @@ class ObjectivesWonLost extends React.Component {
         let objectivesDisplays = this.compileObjectivesDisplays();
         this.totalObjectivesWonLost();
 
+
+        //Switch out for a method to do this check.
         let isActive5 = "";
         let isActive30 = "";
         let isActive60 = "";
@@ -21,7 +23,7 @@ class ObjectivesWonLost extends React.Component {
         if (timeFrame === 3600000 ) { isActive60 = "objectives-btn-active" }
 
         return (
-            <div className="data-component-card">
+            <div className="data-component-card card-padding">
                 <div className="row-fixed">
                     <h3 className="left-align">Objectives Gained</h3>
                     <button className={`objectives-btn ${isActive5}`} onClick={() => selectTimeFrame(300000)}>&lt;5 mins</button>

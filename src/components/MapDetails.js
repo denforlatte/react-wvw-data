@@ -30,7 +30,6 @@ class MapDetails extends React.Component {
                     kills={fullAPI.maps[mapArrayPosition].kills}
                     deaths={fullAPI.maps[mapArrayPosition].deaths}
                 />
-                <br/>
                 <ObjectivesWonLost
                     mapName={mapName}
                     servers={fullAPI.worlds}

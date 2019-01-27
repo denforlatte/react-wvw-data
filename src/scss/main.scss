@@ -26,6 +26,9 @@ h2 {
     @extend .row-responsive;
     @include break-content(900) {
         flex-direction: row;
+        > div {
+            width: 30%;
+        }
     }
 }
 

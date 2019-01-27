@@ -27,32 +27,32 @@
     @extend .icon;
 
     background-repeat: no-repeat;
-    -webkit-mask-image: url('/alpha_assets/barracks-tent_game-icons-net.svg');
-    mask-image: url('/alpha_assets/barracks-tent_game-icons-net.svg')
+    -webkit-mask-image: url('/objective-icons/camp.svg');
+    mask-image: url('/objective-icons/camp.svg')
 }
 
 .icon-tower {
     @extend .icon;
 
     background-repeat: no-repeat;
-    -webkit-mask-image: url('/alpha_assets/white-tower_game-icons-net.svg');
-    mask-image: url('/alpha_assets/white-tower_game-icons-net.svg')
+    -webkit-mask-image: url('/objective-icons/tower.svg');
+    mask-image: url('/objective-icons/tower.svg')
 }
 
 .icon-keep {
     @extend .icon;
 
     background-repeat: no-repeat;
-    -webkit-mask-image: url('/alpha_assets/tower-flag_game-icons.net.svg');
-    mask-image: url('/alpha_assets/tower-flag_game-icons.net.svg')
+    -webkit-mask-image: url('/objective-icons/keep.svg');
+    mask-image: url('/objective-icons/keep.svg')
 }
 
 .icon-castle {
     @extend .icon;
 
     background-repeat: no-repeat;
-    -webkit-mask-image: url('/alpha_assets/castle_game-icons.net.svg');
-    mask-image: url('/alpha_assets/castle_game-icons.net.svg')
+    -webkit-mask-image: url('/objective-icons/castle.svg');
+    mask-image: url('/objective-icons/castle.svg')
 }
 
 .icon-grey { background-color: $grey }

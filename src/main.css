@@ -44,7 +44,7 @@
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Calibri, "Trebuchet MS", sans-serif;
-  margin: 0px;
+  margin: 0;
 }
 
 p {
@@ -169,6 +169,10 @@ p {
   margin: 2px;
 }
 
+.card-padding {
+  margin: 12px 0 0 0;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -211,26 +215,26 @@ p {
 
 .icon-camp {
   background-repeat: no-repeat;
-  -webkit-mask-image: url("/alpha_assets/barracks-tent_game-icons-net.svg");
-  mask-image: url("/alpha_assets/barracks-tent_game-icons-net.svg");
+  -webkit-mask-image: url("/objective-icons/camp.svg");
+  mask-image: url("/objective-icons/camp.svg");
 }
 
 .icon-tower {
   background-repeat: no-repeat;
-  -webkit-mask-image: url("/alpha_assets/white-tower_game-icons-net.svg");
-  mask-image: url("/alpha_assets/white-tower_game-icons-net.svg");
+  -webkit-mask-image: url("/objective-icons/tower.svg");
+  mask-image: url("/objective-icons/tower.svg");
 }
 
 .icon-keep {
   background-repeat: no-repeat;
-  -webkit-mask-image: url("/alpha_assets/tower-flag_game-icons.net.svg");
-  mask-image: url("/alpha_assets/tower-flag_game-icons.net.svg");
+  -webkit-mask-image: url("/objective-icons/keep.svg");
+  mask-image: url("/objective-icons/keep.svg");
 }
 
 .icon-castle {
   background-repeat: no-repeat;
-  -webkit-mask-image: url("/alpha_assets/castle_game-icons.net.svg");
-  mask-image: url("/alpha_assets/castle_game-icons.net.svg");
+  -webkit-mask-image: url("/objective-icons/castle.svg");
+  mask-image: url("/objective-icons/castle.svg");
 }
 
 .icon-grey {
@@ -272,6 +276,9 @@ h2 {
 @media (min-width: 900px) {
   .row-responsive-3 {
     flex-direction: row;
+  }
+  .row-responsive-3 > div {
+    width: 30%;
   }
 }
 

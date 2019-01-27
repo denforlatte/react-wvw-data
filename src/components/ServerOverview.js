@@ -11,7 +11,7 @@ class ServerOverview extends React.Component {
                     <h2 className="ppt">+ {ppt} PPT</h2>
                 </div>
 
-                <div className="row-fixed">
+                <div className="row-fixed card-padding">
                     <div>
                         <h3>Kills</h3>
                         <p>{kills}</p>
@@ -25,7 +25,7 @@ class ServerOverview extends React.Component {
                         <p>{ratio}</p>
                     </div>
                 </div>
-                <div className="row-fixed">
+                <div className="row-fixed card-padding">
                     <div>
                         <h3>Skirmish Score</h3>
                         <p>{score}</p>
