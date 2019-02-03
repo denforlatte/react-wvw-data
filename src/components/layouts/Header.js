@@ -5,11 +5,17 @@ import { connect } from 'react-redux';
 
 class Header extends React.Component {
     render() {
-        const { selectedServer, firstFetchSuccess } = this.props.displayState;
+        const { selectedServer, firstFetchSuccess, fetching } = this.props.displayState;
+
+        var updating = '';
+        if (fetching) {
+            updating = 'Updating...';
+        }
 
         return (
             <div className="header">
                 <h1><Link to={"/"} className="reset-a">Guild Wars 2 WvW Overview</Link></h1>
+                <div>{updating}</div>
                 <div>
                     <div className="btn-container">
                         <br/>
