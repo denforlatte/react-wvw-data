@@ -1,0 +1,4 @@
+{
+    "matchupAPIRoot": "https://api.guildwars2.com/v2/wvw/matches?world=",
+    "refreshInterval": 10000
+}

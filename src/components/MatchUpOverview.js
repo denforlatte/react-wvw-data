@@ -57,7 +57,7 @@ class MatchUpOverview extends React.Component {
         const { displayState } = this.props;
 
         //Show loading
-        if (displayState.firstFetchSuccess === false || displayState.fetching === true) {
+        if (!displayState.firstFetchSuccess) {
             return <p>Loading...</p>
         }
 

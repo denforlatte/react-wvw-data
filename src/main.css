@@ -183,6 +183,15 @@ p {
   font-size: 40px;
   margin: 0px;
 }
+.header .display-message {
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  left: 50%;
+  margin-left: -50%;
+  top: 0px;
+  text-align: center;
+}
 
 .home {
   max-width: 1200px;

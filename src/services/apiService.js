@@ -1,4 +1,5 @@
 import store from '../store';
+import config from '../config.json';
 
 var apiService = (function() {
     var instance;
@@ -6,23 +7,17 @@ var apiService = (function() {
     //Singleton wrapper
     function init() {
         var timerInstance = false;
-  
-        function beep () {
-            console.log("beep");
-
-            clearInterval(timerInstance);
-            timerInstance = false;
-        }
 
         //Dispatch a fetch to the store for the promise middleware to handle.
         function fetchAPI(serverCode) {
             store.dispatch({
                 type: "FETCH_MATCHUP_DATA",
-                payload: fetch(`https://api.guildwars2.com/v2/wvw/matches?world=${serverCode}`)
+                payload: fetch(config.matchupAPIRoot + serverCode)
                 .then(response => response.json())
             });
         }
     
+        //Find out if the public functions should just point to private ones with the actual code.
         return { // public interface
             startFetchingAPI: function (serverCode) {
                 //Check there is not already a timer
@@ -34,7 +29,7 @@ var apiService = (function() {
 
                 //Run first fetch and start timer
                 fetchAPI(serverCode);
-                timerInstance = setInterval(beep, 3000);
+                timerInstance = setInterval(fetchAPI, config.refreshInterval, serverCode);
 
                 //Set which server we are currently looking at
                 store.dispatch({

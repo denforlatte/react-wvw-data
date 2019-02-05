@@ -4,18 +4,33 @@ import ServerSelector from './ServerSelector';
 import { connect } from 'react-redux';
 
 class Header extends React.Component {
-    render() {
-        const { selectedServer, firstFetchSuccess, fetching } = this.props.displayState;
+    constructor(props) {
+        super(props)
 
-        var updating = '';
+        this.state = { displayMessage: "", messageWillClear: false };
+    }
+
+    //Check for messages to display or to clear.
+    componentWillReceiveProps(props, state) {
+        const { fetching } = props.displayState;
+
         if (fetching) {
-            updating = 'Updating...';
+            console.log("triggered");
+            this.setState({displayMessage: "updating..."});
         }
+        else if (!fetching && this.state.displayMessage !== "" && !this.state.messageWillClear) {
+            this.clearDisplayMessage();
+        }
+    }
+
+    render() {
+        const { selectedServer, firstFetchSuccess } = this.props.displayState;
+        const { displayMessage } = this.state;
 
         return (
             <div className="header">
                 <h1><Link to={"/"} className="reset-a">Guild Wars 2 WvW Overview</Link></h1>
-                <div>{updating}</div>
+                <div className="display-message">{displayMessage}</div>
                 <div>
                     <div className="btn-container">
                         <br/>
@@ -27,6 +42,13 @@ class Header extends React.Component {
                 
             </div>
         )
+    }
+
+    clearDisplayMessage() {
+        this.setState({messageWillClear: true});
+        setTimeout(() => {
+            this.setState({displayMessage: "", messageWillClear: false});
+        }, 1000);
     }
 }
 
