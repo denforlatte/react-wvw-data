@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 import * as serverHelper from '../helpers/serverHelper';
 import * as analyticsHelper from '../helpers/analyticsHelper';
+import ApiService from '../services/apiService';
 
 import ServerOverview from './ServerOverview';
 import MapDetails from './MapDetails';
-import store from '../store';
 
 //Look up server match up and assign servers to colours/borderlands
 class MatchUpOverview extends React.Component {
@@ -24,33 +24,32 @@ class MatchUpOverview extends React.Component {
     componentDidMount() {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
 
-        analyticsHelper.updateMatchupData(serverCode);
-        this.setState({currentServer: serverCode});
+        //Create/get instance of apiService and start fetching the API
+        var apiService = ApiService.getInstance();
+        apiService.startFetchingAPI(serverCode);
 
-        store.dispatch({
-            type: "SELECT_NEW_SERVER",
-            payload: serverCode
-        });
+        this.setState({currentServer: serverCode});
     }
 
     //Fetch new match up data if a new sever is selected
     componentDidUpdate() {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
+
         if (serverCode !== this.state.currentServer){
+
             this.setState({currentServer: serverCode});
-            analyticsHelper.updateMatchupData(serverCode);;
-            store.dispatch({
-                type: "SELECT_NEW_SERVER",
-                payload: serverCode
-            });
+
+            var apiService = ApiService.getInstance();
+            apiService.stopFetchingAPI();
+            apiService.startFetchingAPI(serverCode);
+
         }
     }
 
+    //Stop fetching the API (also resets the selected server in store to '')
     componentWillUnmount() {
-        store.dispatch({
-            type: "SELECT_NEW_SERVER",
-            payload: ''
-        });
+        var apiService = ApiService.getInstance();
+            apiService.stopFetchingAPI();
     }
 
     //Rough draft of a render statement while details are still being ironed out

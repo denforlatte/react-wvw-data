@@ -8,7 +8,7 @@ class ObjectivesWonLost extends React.Component {
 
 
     render() {
-        const { timeFrame, selectTimeFrame } =this.props;
+        const { selectTimeFrame } =this.props;
 
         let objectivesDisplays = this.compileObjectivesDisplays();
         this.totalObjectivesWonLost();

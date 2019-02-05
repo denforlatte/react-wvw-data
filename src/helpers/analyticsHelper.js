@@ -1,4 +1,3 @@
-import store from '../store';
 import * as serverHelper from './serverHelper';
 
 export function round(value, decimals) {
@@ -12,14 +11,6 @@ export function beautifyNumber(num) {
         return parts.join(".");
     }
     return num;
-}
-
-export function updateMatchupData(serverCode) {
-    store.dispatch({
-        type: "FETCH_MATCHUP_DATA",
-        payload: fetch(`https://api.guildwars2.com/v2/wvw/matches?world=${serverCode}`)
-        .then(response => response.json())
-    });
 }
 
 export function calculatePPT(maps) {
