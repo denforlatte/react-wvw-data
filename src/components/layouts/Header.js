@@ -7,19 +7,21 @@ class Header extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = { displayMessage: "", messageWillClear: false };
+        this.state = { displayMessage: ""};
+
+        // eslint-disable-next-line
+        var displayMessageTimer;
     }
 
     //Check for messages to display or to clear.
     componentWillReceiveProps(props, state) {
-        const { fetching } = props.displayState;
+        const { fetching, fetchFailed } = props.displayState;
 
         if (fetching) {
-            console.log("triggered");
-            this.setState({displayMessage: "updating..."});
+            this.setDisplayMessage("updating...", 1000);
         }
-        else if (!fetching && this.state.displayMessage !== "" && !this.state.messageWillClear) {
-            this.clearDisplayMessage();
+        else if (fetchFailed) {
+            this.setDisplayMessage("failed...", 9000);
         }
     }
 
@@ -44,11 +46,14 @@ class Header extends React.Component {
         )
     }
 
-    clearDisplayMessage() {
-        this.setState({messageWillClear: true});
-        setTimeout(() => {
-            this.setState({displayMessage: "", messageWillClear: false});
-        }, 1000);
+    setDisplayMessage(message, displayTime) {
+
+        clearTimeout(this.displayMessageTimer);
+
+        this.setState({displayMessage: message});
+        this.displayMessageTimer = setTimeout(() => {
+            this.setState({displayMessage: ""});
+        }, displayTime);
     }
 }
 

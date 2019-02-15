@@ -3,7 +3,8 @@ const displayStateReducer = function(state={}, action) {
         case "FETCH_MATCHUP_DATA_PENDING": {
             return {
                 ...state,
-                fetching: true
+                fetching: true,
+                fetchFailed: false
             };
         }
         case "FETCH_MATCHUP_DATA_FULFILLED": {
@@ -11,6 +12,13 @@ const displayStateReducer = function(state={}, action) {
                 ...state, 
                 firstFetchSuccess: true,
                 fetching: false
+            };
+        }
+        case "FETCH_MATCHUP_DATA_REJECTED": {
+            return {
+                ...state, 
+                fetching: false,
+                fetchFailed: true
             };
         }
         case "SELECT_NEW_SERVER": {

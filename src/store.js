@@ -7,7 +7,8 @@ const initialState = {
     displayState: {
         selectedServer: '',
         firstFetchSuccess: false,
-        fetching: false
+        fetching: false,
+        fetchFailed: false
     },
     fullAPIState: {},
     serverOverviewState: {
