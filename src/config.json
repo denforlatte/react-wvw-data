@@ -1,5 +1,5 @@
 {
-    "matchupAPIRoot": "https://api.guildwaers2.com/v2/wvw/matches?world=",
+    "matchupAPIRoot": "https://api.guildwars2.com/v2/wvw/matches?world=",
     "matchupAPIRootReal": "https://api.guildwars2.com/v2/wvw/matches?world=",
-    "refreshInterval": 10000
+    "refreshInterval": 0  
 }

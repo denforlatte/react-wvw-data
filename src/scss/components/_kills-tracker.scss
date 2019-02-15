@@ -1,0 +1,29 @@
+.killstracker-grid {
+    display: grid;
+    grid-template-columns: 6fr 2fr 2fr 2fr 2fr;
+
+    h4 {
+        text-align: right !important;
+        padding: 10px 4px 0 4px;
+    }
+}
+
+.killstracker-graph {
+    height: 30px !important;
+    width: 30px !important;
+    font-size: 26px;
+}
+
+.killstracker-container {
+    margin: 2px;
+    p {
+        padding-top: 10px;
+        text-align: right !important;
+        margin: 0;
+    }
+}
+
+.killstracker-graph-grey { background-color: $grey }
+.killstracker-graph-red { background-color: $red }
+.killstracker-graph-blue { background-color: $blue }
+.killstracker-graph-green { background-color: $green }

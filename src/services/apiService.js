@@ -29,7 +29,9 @@ var apiService = (function() {
 
                 //Run first fetch and start timer
                 fetchAPI(serverCode);
-                timerInstance = setInterval(fetchAPI, config.refreshInterval, serverCode);
+                if (config.refreshInterval !== 0 ) { // 0 = don't update
+                    timerInstance = setInterval(fetchAPI, config.refreshInterval, serverCode);
+                }
 
                 //Set which server we are currently looking at
                 store.dispatch({

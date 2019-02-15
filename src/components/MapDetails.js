@@ -5,6 +5,7 @@ import * as serverHelper from '../helpers/serverHelper';
 
 import MapOverview from './dataPieces/MapOverview/MapOverview';
 import ObjectivesWonLost from './dataPieces/ObjectivesWonLost/ObjectivesWonLost';
+import KillsTracker from './dataPieces/KillsTracker/KillsTracker';
 
 class MapDetails extends React.Component {
     constructor(props) {
@@ -36,6 +37,10 @@ class MapDetails extends React.Component {
                     objectives={fullAPI.maps[mapArrayPosition].objectives}
                     timeFrame={timeFrame}
                     selectTimeFrame={selectTimeFrame}
+                />
+                <KillsTracker
+                    servers={fullAPI.worlds}
+                    kills={activityAnalytics.kd}
                 />
             </div>
         )
