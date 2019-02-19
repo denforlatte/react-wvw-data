@@ -30,19 +30,19 @@ class Header extends React.Component {
         const { displayMessage } = this.state;
 
         return (
-            <div className="header">
+            <header className="header">
                 <h1><Link to={"/"} className="reset-a">Guild Wars 2 WvW Overview</Link></h1>
                 <div className="display-message">{displayMessage}</div>
-                <div>
+                <nav>
                     <div className="btn-container">
                         <br/>
                         <h2>Select world:&nbsp;</h2>
                         <ServerSelector continent="EU" selectedServer={selectedServer} firstFetchSuccess={firstFetchSuccess}/>
                         <ServerSelector continent="NA" selectedServer={selectedServer} firstFetchSuccess={firstFetchSuccess}/>
                     </div>
-                </div>
+                </nav>
                 
-            </div>
+            </header>
         )
     }
 
