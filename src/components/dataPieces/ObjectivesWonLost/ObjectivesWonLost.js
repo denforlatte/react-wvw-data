@@ -14,7 +14,7 @@ class ObjectivesWonLost extends React.Component {
         this.totalObjectivesWonLost();
 
         return (
-            <div className="data-component-card card-padding">
+            <section className="data-component-card card-padding">
                 <div className="row-fixed">
                     <h3 className="left-align">Objectives Gained</h3>
                     <button className={`objectives-btn ${this.checkIsActive(300000)}`} onClick={() => selectTimeFrame(300000)}>&lt;5 mins</button>
@@ -24,7 +24,7 @@ class ObjectivesWonLost extends React.Component {
                 <div>
                     {objectivesDisplays}
                 </div>
-            </div>
+            </section>
         );
     }
 

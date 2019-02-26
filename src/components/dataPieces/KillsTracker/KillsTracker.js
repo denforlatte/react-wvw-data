@@ -11,14 +11,14 @@ export default function KillsTracker(props) {
     const killsTrackerDisplays = useKillsTrackerDisplay(servers, kills);
 
     return (
-        <div className="data-component-card card-padding">
+        <section className="data-component-card card-padding">
                 <div className="row-fixed">
                     <h3 className="left-align">Kills &amp; Deaths Tracker</h3>
                 </div>
                 <div>
                     {killsTrackerDisplays}
                 </div>
-            </div>
+            </section>
     );
 }
 

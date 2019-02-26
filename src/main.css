@@ -227,6 +227,12 @@ p {
   fill: #f88;
 }
 
+.graph-axis-tags * {
+  fill: #aaa !important;
+  font-size: 12px;
+  text-align: center;
+}
+
 .objectives-grid {
   display: grid;
   grid-template-columns: 6fr 2fr 2fr 2fr 2fr;
