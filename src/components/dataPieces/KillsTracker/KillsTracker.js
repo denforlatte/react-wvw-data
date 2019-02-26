@@ -13,7 +13,10 @@ export default function KillsTracker(props) {
     return (
         <section className="data-component-card card-padding">
                 <div className="row-fixed">
-                    <h3 className="left-align">Kills &amp; Deaths Tracker</h3>
+                    <h3 className="font-left-align">Kills &amp; Deaths Tracker</h3>
+                </div>
+                <div>
+                    <p className="font-left-align">Watching for kills in 30 second intervals. Hover over bars for exact numbers.</p>
                 </div>
                 <div>
                     {killsTrackerDisplays}

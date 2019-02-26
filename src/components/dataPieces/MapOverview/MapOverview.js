@@ -13,7 +13,7 @@ class MapOverview extends React.Component {
         return (
             <section className="data-component-card">
                 <div className="row-fixed">
-                    <h3 className="left-align">Map Overview</h3>
+                    <h3 className="font-left-align">Map Overview</h3>
                 </div>
                 <div>
                     {mapServerScores}

@@ -10,7 +10,7 @@ export default function KillsTrackerGraph(props) {
     const [ highestValue, setHighestValue ] = useState(10);
     const { data } = props;
     const graphBars = useGraphBars(data, highestValue, setHighestValue);
-    const timestampsThirty = ["-2m30", "-2", "-1m30", "-1m", "-30s", "0s"]
+    const timestampsThirty = ["-2m30", "-2m", "-1m30", "-1m", "-30s", "0s"]
     const timestampsXPos = [10, 27, 45, 63, 82, 99];
     const timestamps = useGraphTimestamps(graphBars.length, timestampsXPos, timestampsThirty);
 
@@ -31,10 +31,12 @@ export default function KillsTrackerGraph(props) {
     )
 }
 
-function useGraphBars(data, highestValue, setHighestValue) {
+function useGraphBars(data, highestValueState, setHighestValue) {
     let dataDiff = [];
     let graphBars = [];
-    let maxBars = 5; //A temporary hardcoded solution to 
+    let maxBars = 5; //A temporary hardcoded solution to
+    let highestValue = 10; //This resets the highest value to the default value
+    //Also, it's important not to use the highest value from state as that risks a rerender loop.
     
     //Find out where to start if there is more data than can be displayed.
     let startingPos = data.length - maxBars;
@@ -49,8 +51,13 @@ function useGraphBars(data, highestValue, setHighestValue) {
 
     //Find highest value in 2D array "data" and store it as "highestValue"
     for (let i = 0; i < dataDiff.length; i++) {
-        if (dataDiff[i][0] > highestValue) {setHighestValue(dataDiff[i][0])};
-        if (dataDiff[i][1] > highestValue) {setHighestValue(dataDiff[i][1])};
+        if (dataDiff[i][0] > highestValue) {highestValue = dataDiff[i][0]};
+        if (dataDiff[i][1] > highestValue) {highestValue = dataDiff[i][1]};
+    }
+
+    //Set the highestValue in state to display it if it is different. 
+    if (highestValueState !== highestValue) {
+        setHighestValue(highestValue);
     }
 
     //Format the kills and deaths differences into the KillsTrackerBars svg format
@@ -83,13 +90,14 @@ function useGraphBars(data, highestValue, setHighestValue) {
     return graphBars;
 }
 
-function useGraphTimestamps (numberOfIntervals, timestampsXPos, timestampsThirty) {
+//This baby just compiles an array of X axis tags and timestamps, reflecting the data in the timestamps.
+function useGraphTimestamps (numberOfIntervals, timestampsXPos, timestampsReference) {
     let timestamps = [];
     let times = [];
 
     
     for (let i = 5 - numberOfIntervals; i < 6; i++) {
-        times.push(timestampsThirty[i]);
+        times.push(timestampsReference[i]);
     }
 
     for (let i = times.length; i < 6; i++) {

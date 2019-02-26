@@ -56,9 +56,14 @@ class MatchUpOverview extends React.Component {
     render() {
         const { displayState } = this.props;
 
+        //Error fetching from API.
+        if (displayState.fetchFailed) {
+            return <p>Unable to find data for this match up. Please try selecting another server or try again later.</p>
+        }
+
         //Show loading
         if (!displayState.firstFetchSuccess) {
-            return <p>Loading...</p>
+            return <p>Loading... If this takes more than ten seconds, please check the URL and refresh.</p>
         }
 
         //Data has returned. Full display.

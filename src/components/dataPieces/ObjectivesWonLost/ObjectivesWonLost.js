@@ -16,7 +16,7 @@ class ObjectivesWonLost extends React.Component {
         return (
             <section className="data-component-card card-padding">
                 <div className="row-fixed">
-                    <h3 className="left-align">Objectives Gained</h3>
+                    <h3 className="font-left-align">Objectives Gained</h3>
                     <button className={`objectives-btn ${this.checkIsActive(300000)}`} onClick={() => selectTimeFrame(300000)}>&lt;5 mins</button>
                     <button className={`objectives-btn ${this.checkIsActive(1800000)}`} onClick={() => selectTimeFrame(1800000)}>&lt;30 mins</button>
                     <button className={`objectives-btn ${this.checkIsActive(3600000)}`} onClick={() => selectTimeFrame(3600000)}>&lt;60 mins</button>
