@@ -28,6 +28,12 @@ const displayStateReducer = function(state={}, action) {
                 selectedServer: action.payload
             }
         }
+        case "UPDATE_DISPLAY_MESSAGE": {
+            return {
+                ...state,
+                message: action.payload
+            }
+        }
         default: {
             return state;
         }

@@ -8,7 +8,8 @@ const initialState = {
         selectedServer: '',
         firstFetchSuccess: false,
         fetching: false,
-        fetchFailed: false
+        fetchFailed: false,
+        message: ""
     },
     fullAPIState: {},
     serverOverviewState: {

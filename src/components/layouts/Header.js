@@ -15,13 +15,16 @@ class Header extends React.Component {
 
     //Check for messages to display or to clear.
     componentWillReceiveProps(props, state) {
-        const { fetching, fetchFailed } = props.displayState;
+        const { fetching, fetchFailed, message } = props.displayState;
 
         if (fetching) {
             this.setDisplayMessage("updating...", 1000);
         }
         else if (fetchFailed) {
             this.setDisplayMessage("failed...", 9000);
+        }
+        else if (message) {
+            this.setDisplayMessage(message);
         }
     }
 
@@ -51,9 +54,12 @@ class Header extends React.Component {
         clearTimeout(this.displayMessageTimer);
 
         this.setState({displayMessage: message});
-        this.displayMessageTimer = setTimeout(() => {
-            this.setState({displayMessage: ""});
-        }, displayTime);
+
+        if (displayTime) {
+            this.displayMessageTimer = setTimeout(() => {
+                this.setState({displayMessage: ""});
+            }, displayTime);
+        }
     }
 }
 
