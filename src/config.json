@@ -2,5 +2,5 @@
     "matchupAPIRoot": "https://api.guildwars2.com/v2/wvw/matches?world=",
     "matchupAPIRootReal": "https://api.guildwars2.com/v2/wvw/matches?world=",
     "refreshInterval": 30000,
-    "fetchTimeout": 360 
+    "fetchTimeout": 480 
 }
