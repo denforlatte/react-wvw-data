@@ -7,8 +7,11 @@ const initialState = {
     displayState: {
         selectedServer: '',
         firstFetchSuccess: false,
-        fetching: false
+        fetching: false,
+        fetchFailed: false,
+        message: ""
     },
+    fullAPIState: {},
     serverOverviewState: {
         red: {
             name: "Red Server",
@@ -44,6 +47,11 @@ const initialState = {
                 red: 0,
                 green: 0,
                 blue: 0
+            },
+            kd: {
+                red: [],
+                green: [],
+                blue: []
             }
         },
         redBorderland: {
@@ -51,6 +59,11 @@ const initialState = {
                 red: 0,
                 green: 0,
                 blue: 0
+            },
+            kd: {
+                red: [],
+                green: [],
+                blue: []
             }
         },
         greenBorderland: {
@@ -58,6 +71,11 @@ const initialState = {
                 red: 0,
                 green: 0,
                 blue: 0
+            },
+            kd: {
+                red: [],
+                green: [],
+                blue: []
             }
         },
         blueBorderland: {
@@ -65,6 +83,11 @@ const initialState = {
                 red: 0,
                 green: 0,
                 blue: 0
+            },
+            kd: {
+                red: [],
+                green: [],
+                blue: []
             }
         }
     }

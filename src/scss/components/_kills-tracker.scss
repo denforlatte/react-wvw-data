@@ -1,0 +1,40 @@
+.killstracker-grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    h4 {
+        text-align: right !important;
+        padding: 10px 4px 0 4px;
+    }
+}
+
+.killstracker-graph {
+    background-color: #333333;
+    margin: 2%;
+    padding: 3%;
+
+    width: 90%;
+    height: 60px;
+  
+    rect:first-child {
+        fill: #4a4;
+
+        &:hover {
+            fill: #8f8;
+        }
+    }
+
+    rect:last-child {
+        fill: #a44;
+        
+        &:hover {
+            fill: #f88;
+        }
+    }
+}
+
+.graph-axis-tags * {
+    fill: #aaa !important;
+    font-size: 12px;
+    text-align: center;
+  }

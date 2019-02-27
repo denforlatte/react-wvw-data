@@ -55,7 +55,7 @@ p {
   font-family: "Courier New", Courier, monospace !important;
 }
 
-.left-align, .font-left-align {
+.left-align {
   text-align: left !important;
   padding-left: 4px;
 }
@@ -200,7 +200,7 @@ p {
 
 .killstracker-grid {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 6fr 2fr 2fr 2fr 2fr;
 }
 .killstracker-grid h4 {
   text-align: right !important;
@@ -208,29 +208,34 @@ p {
 }
 
 .killstracker-graph {
-  background-color: #333333;
-  margin: 2%;
-  padding: 3%;
-  width: 90%;
-  height: 60px;
-}
-.killstracker-graph rect:first-child {
-  fill: #4a4;
-}
-.killstracker-graph rect:first-child:hover {
-  fill: #8f8;
-}
-.killstracker-graph rect:last-child {
-  fill: #a44;
-}
-.killstracker-graph rect:last-child:hover {
-  fill: #f88;
+  height: 30px !important;
+  width: 30px !important;
+  font-size: 26px;
 }
 
-.graph-axis-tags * {
-  fill: #aaa !important;
-  font-size: 12px;
-  text-align: center;
+.killstracker-container {
+  margin: 2px;
+}
+.killstracker-container p {
+  padding-top: 10px;
+  text-align: right !important;
+  margin: 0;
+}
+
+.killstracker-graph-grey {
+  background-color: #777;
+}
+
+.killstracker-graph-red {
+  background-color: #922;
+}
+
+.killstracker-graph-blue {
+  background-color: #229;
+}
+
+.killstracker-graph-green {
+  background-color: #292;
 }
 
 .objectives-grid {

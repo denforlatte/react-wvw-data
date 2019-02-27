@@ -5,6 +5,8 @@
 body {
     background-color: $theme-background;
     padding: 20px;
+    max-width: 2000px;
+    margin: auto;
 }
 
 h2 {
@@ -18,13 +20,25 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
 
-    @include desktop {
+.row-responsive-3 {
+    @extend .row-responsive;
+    @include break-content(900) {
         flex-direction: row;
-
-        > * {
+        > div {
             width: 30%;
         }
+    }
+}
+
+.row-responsive-4 {
+    @include break-content(700){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    @include break-content(1200){
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
 
@@ -38,15 +52,6 @@ h2 {
     h2 span {
         font-size: 0.875em;
         color: $link-grey;
-    }
-}
-
-.card {
-    background-color: $theme-card;
-    margin: 20px;
-    color: $theme-font;
-    div * {
-        text-align: center;
     }
 }
 

@@ -3,83 +3,94 @@ import { connect } from 'react-redux';
 
 import * as serverHelper from '../helpers/serverHelper';
 import * as analyticsHelper from '../helpers/analyticsHelper';
+import ApiService from '../services/apiService';
 
 import ServerOverview from './ServerOverview';
 import MapDetails from './MapDetails';
-import store from '../store';
 
 //Look up server match up and assign servers to colours/borderlands
 class MatchUpOverview extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentServer: ''
+            currentServer: '',
+            timeFrame: 3600000
         }
+
+        this.selectTimeFrame = this.selectTimeFrame.bind(this);
     }
 
     //Get the code of the desired server, fetch the match up data, store server code in state.
     componentDidMount() {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
 
-        analyticsHelper.updateMatchupData(serverCode);
-        this.setState({currentServer: serverCode});
+        //Create/get instance of apiService and start fetching the API
+        var apiService = ApiService.getInstance();
+        apiService.startFetchingAPI(serverCode);
 
-        store.dispatch({
-            type: "SELECT_NEW_SERVER",
-            payload: serverCode
-        });
+        this.setState({currentServer: serverCode});
     }
 
     //Fetch new match up data if a new sever is selected
     componentDidUpdate() {
         var serverCode = serverHelper.getCodeByName(this.props.match.params.serverName);
+
         if (serverCode !== this.state.currentServer){
+
             this.setState({currentServer: serverCode});
-            analyticsHelper.updateMatchupData(serverCode);;
-            store.dispatch({
-                type: "SELECT_NEW_SERVER",
-                payload: serverCode
-            });
+
+            var apiService = ApiService.getInstance();
+            apiService.stopFetchingAPI();
+            apiService.startFetchingAPI(serverCode);
+
         }
     }
 
+    //Stop fetching the API (also resets the selected server in store to '')
     componentWillUnmount() {
-        store.dispatch({
-            type: "SELECT_NEW_SERVER",
-            payload: ''
-        });
+        var apiService = ApiService.getInstance();
+            apiService.stopFetchingAPI();
     }
 
     //Rough draft of a render statement while details are still being ironed out
     render() {
         const { displayState } = this.props;
 
+        //Error fetching from API.
+        if (displayState.fetchFailed) {
+            return <p>Unable to find data for this match up. Please try selecting another server or try again later.</p>
+        }
+
         //Show loading
-        if (displayState.firstFetchSuccess === false || displayState.fetching === true) {
-            return <p>Loading...</p>
+        if (!displayState.firstFetchSuccess) {
+            return <p>Loading... If this takes more than ten seconds, please check the URL and refresh.</p>
         }
 
         //Data has returned. Full display.
-        var overviews = this.compileServerOverviews();
+        var serverOverviews = this.compileServerOverviews();
+        var mapDetails = this.compileMapDetails();
+
         return (
             <div>
-                <div className="row-responsive">
-                    {overviews}
+                <div className="row-responsive-3">
+                    {serverOverviews}
                 </div>
                 <div className="bar"></div>
-                
+                <div className="row-responsive-4">
+                    {mapDetails}
+                </div>
             </div>
         )
     }
 
     //Loop through the servers assigning values from store to props for <ServerOverview /> to display
     compileServerOverviews() {
-        const { serverOverview, activityAnalytics } = this.props;
-        var serverColours = Object.getOwnPropertyNames(serverOverview);
+        const { fullAPI, serverOverview, activityAnalytics } = this.props;
+        var serverColours = Object.getOwnPropertyNames(fullAPI.worlds);
         var overviews = [];
-        var i;
 
-        for (i = 0; i < 3; i++) {
+        var i;
+        for (i = 0; i < serverColours.length; i++) {
             var colour = serverColours[i];
             var server = serverOverview[colour];
             
@@ -107,11 +118,55 @@ class MatchUpOverview extends React.Component {
         }
         return overviews;
     }
+
+    compileMapDetails() {
+        const { fullAPI, activityAnalytics } = this.props;
+        const { timeFrame } = this.state;
+        var mapDetails = [];
+
+        
+        mapDetails.push(
+            <MapDetails 
+                key="0" 
+                mapName="Eternal Battlegrounds" 
+                colour="grey"
+                activityAnalytics={activityAnalytics.eternalBattlegrounds}
+                timeFrame={timeFrame}
+                selectTimeFrame={this.selectTimeFrame}
+            />
+        );
+
+        
+        let serverColours = Object.getOwnPropertyNames(fullAPI.worlds);
+        let i;
+        for (i = 0; i < serverColours.length; i++) {
+            let colour = serverColours[i];
+
+            mapDetails.push(
+                <MapDetails 
+                    key={fullAPI.worlds[colour]} 
+                    mapName={`${serverHelper.getNameByCode(fullAPI.worlds[colour])} Borderland`} 
+                    colour={colour}
+                    activityAnalytics={activityAnalytics[`${colour}Borderland`]}
+                    timeFrame={timeFrame}
+                    selectTimeFrame={this.selectTimeFrame}
+                />
+            );
+        }      
+        
+
+        return mapDetails;
+    }
+
+    selectTimeFrame(timeFrame) {
+        this.setState({timeFrame});
+    }
 }
 
 const mapStateToProps = function(store) {
     return {
         displayState: store.displayState,
+        fullAPI: store.fullAPIState,
         serverOverview: store.serverOverviewState,
         activityAnalytics: store.activityAnalyticsState
     };

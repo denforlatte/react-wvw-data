@@ -1,0 +1,61 @@
+.objectives-grid {
+    display: grid;
+    grid-template-columns: 6fr 2fr 2fr 2fr 2fr;
+
+    h4 {
+        text-align: right !important;
+        padding: 10px 4px 0 4px;
+    }
+}
+
+.icon {
+    height: 30px !important;
+    width: 30px !important;
+    font-size: 26px;
+}
+
+.objective-container {
+    margin: 2px;
+    p {
+        padding-top: 10px;
+        text-align: right !important;
+        margin: 0;
+    }
+}
+
+.icon-camp {
+    @extend .icon;
+
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('https://denforlatte.github.io/react-wvw-data//objective-icons/camp.svg');
+    mask-image: url('https://denforlatte.github.io/react-wvw-data//objective-icons/camp.svg')
+}
+
+.icon-tower {
+    @extend .icon;
+
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('https://denforlatte.github.io/react-wvw-data/objective-icons/tower.svg');
+    mask-image: url('https://denforlatte.github.io/react-wvw-data/objective-icons/tower.svg')
+}
+ 
+.icon-keep {
+    @extend .icon;
+
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('https://denforlatte.github.io/react-wvw-data/objective-icons/keep.svg');
+    mask-image: url('https://denforlatte.github.io/react-wvw-data/objective-icons/keep.svg')
+}
+
+.icon-castle {
+    @extend .icon;
+
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('https://denforlatte.github.io/react-wvw-data/objective-icons/castle.svg');
+    mask-image: url('https://denforlatte.github.io/react-wvw-data/objective-icons/castle.svg')
+}
+
+.icon-grey { background-color: $grey }
+.icon-red { background-color: $red }
+.icon-blue { background-color: $blue }
+.icon-green { background-color: $green }
