@@ -112,7 +112,6 @@ class ObjectivesWonLost extends React.Component {
                 }
             }
         }
-        console.log(objectivesWonLost);
 
         return objectivesWonLost;
     }
