@@ -76,19 +76,19 @@ class ObjectivesWonLost extends React.Component {
                 camp: 0,
                 tower: 0,
                 keep: 0,
-                castle: 0
+                castle: 0,
             },
             blue: {
                 camp: 0,
                 tower: 0,
                 keep: 0,
-                castle: 0
+                castle: 0,
             },
             green: {
                 camp: 0,
                 tower: 0,
                 keep: 0,
-                castle: 0
+                castle: 0,
             }
         }
 
@@ -103,9 +103,16 @@ class ObjectivesWonLost extends React.Component {
                 let owner = x.owner;
                 let type = x.type;
 
-                objectivesWonLost[owner.toLowerCase()][type.toLowerCase()]++;
+                //Check type exists! The following started returning undefined but then randomly started working again.
+                try {
+                    objectivesWonLost[owner.toLowerCase()][type.toLowerCase()]++;
+                }
+                catch {
+                    console.log(`Do not recognise objective of:\n${owner}\n${type}`);
+                }
             }
         }
+        console.log(objectivesWonLost);
 
         return objectivesWonLost;
     }

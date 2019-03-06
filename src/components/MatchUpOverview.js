@@ -71,7 +71,7 @@ class MatchUpOverview extends React.Component {
         var mapDetails = this.compileMapDetails();
 
         return (
-            <div>
+            <main>
                 <div className="row-responsive-3">
                     {serverOverviews}
                 </div>
@@ -79,7 +79,7 @@ class MatchUpOverview extends React.Component {
                 <div className="row-responsive-4">
                     {mapDetails}
                 </div>
-            </div>
+            </main>
         )
     }
 
